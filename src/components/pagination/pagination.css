@@ -1,0 +1,11 @@
+.disabled {
+    pointer-events: none;
+    box-shadow: none;
+    background-color: #999 !important;
+  }
+
+  .myNav .pageCount {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+  }

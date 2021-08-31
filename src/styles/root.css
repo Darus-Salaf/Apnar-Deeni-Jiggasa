@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Hind Siliguri', sans-serif !important;
+}
+body {
+    background-color: #305557;
+}
+main {
+max-width: 1200px;
+margin: 0 auto;
+}
+.bangla {
+    font-family: 'Hind Siliguri', sans-serif !important;
+}
+.loading {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    animation-name: example;
+    animation-duration: 2s;
+    color: #eee;
+    font-weight: 700;
+}
+@keyframes example {
+    from {font-size: .5rem;}
+    to {font-size: 2.5rem;}
+  }
+footer {
+    background-color: #163c3f;
+    padding: 40px 0;
+    color: #eee;
+}
+footer h3 {
+    color: #ffbb00;
+}
+footer ul>li {
+    margin: 10px 0;
+}
+footer a:hover {
+    color: #4d878b;
+}
+
+footer .footerInput input {
+    border: 0;
+    border-radius: 10px 0 0 10px !important;
+    max-width: 300px;
+}
+footer .footerInput>button {
+    background-color: #305557;
+    border-radius: 0 10px 10px 0 !important;
+    color: #eee;
+}
+footer .footerpl {
+    padding-left: 3rem;
+}
+ul {
+    padding-left: 0;
+}
+ul>li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #eee;
+}
+hr:not([size]) {
+    height: 0;
+    opacity: .6;
+}
+img {
+    width: 100%;
+}
+.categ {
+    min-height: 1425px !important;
+}
+.vLine {
+    width: 3px;
+    background: #305557;
+    margin: 0 5px;
+}
+.warning {
+    /* color: #ffbb00 !important; */
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.question, .answer {
+    color: #254548;
+    font-family: 'Hind Siliguri', sans-serif !important;
+}
+.question {
+    padding-bottom: 1.5rem;
+    font-weight: 600 !important;
+}
+.qHeader>h4 {
+    padding-top: 20px;
+}
+.qHeader>.qButton {
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+}
+.qHeader>.qButton>button {
+    background-color: #26676c !important;
+    color: #eee !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    padding: 2px !important;
+}
+.qHeader>.qButton>.size {
+    padding: 0 5px ;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: red;
+}
+#qAppbar {
+    position: fixed;
+}
+.videoMain>iframe {
+    height: 700px;
+}
+@media(max-width: 1199px) {
+    .categ {
+        display: none !important;
+    }
+    .videoMain>iframe {
+        height: 540px;
+    }
+}
+@media(max-width: 991px) {
+    footer .footerpl {padding-left: 0;}
+    .videoMain>iframe {
+        height: 400px !important;
+    }
+}
+@media(max-width: 767px) {
+    footer .cntr {
+        text-align: center;
+    }
+    footer .footerInput input {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    .videoMain>iframe {
+        height: 320px !important;
+    }
+}
+@media(min-width: 767px) {
+    @keyframes example {
+        from {font-size: .5rem;}
+        to {font-size: 4rem;}
+      }
+}
+@media(max-width: 399px) {
+    #notMobile {justify-content: center !important;}
+    #notMobile2 {display: none !important;}
+    .qHeader>.qButton {
+        height: 30px !important;
+        overflow: hidden;
+    }
+    .videoMain>iframe {
+        height: 260px !important;
+    }
+}
+
+
+
+
+
+
+
+
+/* 
+--------------------
+Material UI Customization by Rabius Sunny
+--------------------
+*/
+.MuiTabs-indicator, .PrivateTabIndicator-colorSecondary-3 {
+    background-color: #2ba3ab !important;
+    height: 100% !important;
+    opacity: 0.8 !important;
+    border: 4px solid #ffbb00 !important;
+}
+.MuiTabs-root .MuiTabs-flexContainer {
+    justify-content: space-evenly !important;
+}
+.MuiPaper-root {
+    background-color: #26676c !important;
+}

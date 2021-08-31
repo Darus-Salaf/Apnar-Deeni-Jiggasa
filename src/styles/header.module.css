@@ -1,0 +1,107 @@
+.header {
+    background-color: #163c3f;;
+    padding: 1rem 0 .5rem 0;
+    border: 7px solid #848484;
+    border-radius: 80px 20px 80px 20px;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.5);
+}
+.header>h5 {
+    font-weight: 500;
+    color: #eee;
+    padding-bottom: 10px;
+}
+.header>h1 {
+    font-size: 4.5rem;
+    color: #eee;
+    font-weight: 600;
+}
+.navbar {
+    background-color: #163c3f;
+    padding: 4px;
+    border: 6px solid #63787a;
+    border-radius: 35px;
+}
+.menuItem>ul {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0;
+}
+.menuItem>ul>li {
+    margin: 0 5px;
+}
+.menuItem>ul>li>a {
+    transition: all .2s ease-in-out;
+    color: #eee;
+    background-color: #63787a;
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+.menuItem>ul>li>a:hover {
+    background-color: #26676c;
+}
+.search>input {
+    border: 3px solid #63787a;
+    border-radius: 25px;
+    padding: 5px 15px;
+    background-color: transparent;
+}
+.search>input:focus {
+    outline: 0;
+}
+.search>input[placeholder] {
+    font-weight: 300;
+    color: #eee;
+}
+
+/* Mobile Menu  */
+.mobileNav {
+    background-color: #163c3f;
+    padding: 5px 0;
+}
+.menuBtn {
+    color: #eee !important;
+    font-weight: 500 !important;
+    font-size: 1.2rem !important;
+    font-family: 'Hind Siliguri', sans-serif !important;
+}
+.menuList {
+    border-bottom: 2px solid #4f8e92 !important;
+    padding: 10px 30px !important;
+    color: #dcfdff !important;
+    font-family: 'Hind Siliguri', sans-serif !important;
+}
+.menuList>a {
+    width: 100%;
+    text-align: center;
+    padding: 10px 40px;
+}
+.menuList>a:hover {
+    color: aqua;
+}
+.menuList:last-child {border-bottom: 0 !important;}
+
+@media (max-width: 1199px) {
+    .navbar {display: none !important;}
+}
+@media (min-width: 1200px) {
+    .mobileNav {display: none !important;}
+}
+@media (max-width: 767px) {
+    .header>h1 {font-size: 3rem;}
+    .header>h5 {font-size: 1rem;}
+}
+@media (max-width: 575px) {
+    .header>h5 {font-size: 1rem;}
+}
+@media (max-width: 475px) {
+    .header>h1 {font-size: 2.5rem;}
+    .header>h5 {
+        font-size: .8rem;
+    }
+}
+@media (max-width: 400px) {
+    .header>h1 {font-size: 2rem;}
+    .header>h5 {
+        font-size: 11px;
+    }
+}

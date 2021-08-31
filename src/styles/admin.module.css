@@ -1,0 +1,39 @@
+.admin {
+    margin-top: 20px;
+    padding: 10px 5px;
+    background-color: #163c3f;
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+}
+.admin>ul>li {
+    padding: 10px 0;
+    margin: 25px 0;
+    border-bottom: 2px solid #eee;
+    border-top: 2px solid #eee;
+    text-align: center;
+}
+.admin>ul>li:hover {
+    background-color:#097077;
+}
+.admin>ul>li>a:hover {
+    color: aquamarine;
+}
+.admin>ul>li>a {
+    padding: 10px 20px;
+}
+.adminInput {
+    max-width: 900px;
+    padding: 30px;
+    background-color: #eee;
+    border-radius: 10px;
+    margin: 15px auto;
+}
+ .adminInput button {
+     background-color: #163c3f;
+     color: #eee;
+     font-weight: 600;
+     width: 100%;
+    }
+    .adminInput button:hover {
+        background-color: #163c3fc9;
+    }

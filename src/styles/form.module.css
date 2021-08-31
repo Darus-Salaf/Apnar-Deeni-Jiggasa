@@ -1,0 +1,41 @@
+.main {
+    background-color: #204d50;
+    padding: 10px 10px;
+    border-radius: 25px 25px 0 0;
+}
+.main>p {
+    margin: 20px auto;
+}
+.form {
+    background-color: #26676c;
+}
+.form input, .form textarea {
+    display: block;
+    border-radius: 3px;
+    width: 100%;
+    background-color: #d6e1e2;
+    border: 0;
+    margin: 15px 0;
+    padding: 5px 0 5px 20px;
+    font-size: .9rem;
+}
+.form input:focus {
+    outline: 0;
+}
+.form p {
+    color: #c2c2c2;
+    margin-bottom: 0;
+}
+.form a {
+    color: #d4c77c;
+    margin-left: 5px;
+}
+.form .formBtn {
+    border: 0;
+    background-color: #15811c;
+    color: white;
+    width: 40%;
+    padding: 5px 0;
+    border-radius: 3px;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
+}

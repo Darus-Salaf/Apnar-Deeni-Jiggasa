@@ -1,0 +1,29 @@
+.loginBg {
+    background-color: #163c3f;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee !important;
+}
+.loginForm {
+    min-width: 40%;
+    padding: 30px;
+    border: 5px solid #305557;
+    border-radius: 15px;
+    background-color: #00aab6;
+}
+.loginForm button {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .loginForm {
+        min-width: 95%;
+    }
+}

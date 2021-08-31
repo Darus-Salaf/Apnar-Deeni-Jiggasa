@@ -1,0 +1,17 @@
+footer {
+    background-color: #163c3f;
+    padding: 40px 0;
+    color: #eee;
+}
+footer h3 {
+    color: #ffbb00;
+}
+footer ul>li {
+    margin: 10px 0;
+}
+footer a:hover {
+    color: #4d878b;
+}
+footer .footerInput input {
+    border-radius: 15px !important;
+}
