@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function List({ topic, data, action }) {
+export default function List({ topic, data, action, isquestion }) {
 
     const classes = useStyles();
 
@@ -37,8 +37,7 @@ export default function List({ topic, data, action }) {
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>{topic}</StyledTableCell>
-                        <StyledTableCell>সময়</StyledTableCell>
-                        <StyledTableCell>এ্যাকশন</StyledTableCell>
+                        {action === 'edit' && <StyledTableCell StyledTableCell> এ্যাকশন</StyledTableCell>}
                         <StyledTableCell>এ্যাকশন</StyledTableCell>
                     </TableRow>
                 </TableHead>
@@ -46,8 +45,9 @@ export default function List({ topic, data, action }) {
                     data={data}
                     dataLimit={5}
                     action={action}
+                    isquestion={isquestion}
                 />
             </Table>
-        </TableContainer>
+        </TableContainer >
     );
 }

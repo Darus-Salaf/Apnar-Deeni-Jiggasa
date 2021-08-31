@@ -6,7 +6,7 @@ import useFetch from "../../pages/Admin/useFetch"
 
 export default function RightSide() {
 
-    let data = useFetch('/backend/api/v1/posts/')
+    let data = useFetch('http://139.59.11.242/backend/api/v1/posts/')
 
     return <>
         <Contemporary name={'সাম্প্রতিক বিষয়াদি'} item={data.slice(0, 5)} isWritten={true} />

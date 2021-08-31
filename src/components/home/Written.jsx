@@ -7,8 +7,8 @@ import Spinner from '../Spinner'
 
 export default function Written() {
 
-    let likhito = useFetch('/backend/api/v1/posts/likhito-proshno/tawheed')
-    let nari = useFetch('/backend/api/v1/posts/nari-ongon/salat')
+    let likhito = useFetch('http://139.59.11.242/backend/api/v1/posts/likhito-proshno/tawheed')
+    let nari = useFetch('http://139.59.11.242/backend/api/v1/posts/nari-ongon/salat')
 
     return <div className={c.bg}>
 

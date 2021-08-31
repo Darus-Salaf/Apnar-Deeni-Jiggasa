@@ -13,7 +13,7 @@ export default function Footer() {
                                 <h2>আপনার দ্বীনি জিজ্ঞাসা</h2>
                                 <p>একটি সম্পূর্ণ অলাভজনক প্রতিষ্ঠান, <br /> এবং স্ব-উদ্যোগে ব্যক্তিগত অর্থায়নে তৈরি ওয়েবসাইট।</p>
                                 <h5><Link to="/about-us">আমাদের সম্পর্কে</Link></h5>
-                                <h5><Link>টিউটোরিয়াল</Link></h5>
+                                <h5><Link to="/faq">FAQ</Link></h5>
                                 <div>
                                     <div className="footerInput input-group my-3">
                                         <input type="text" class="form-control" placeholder="Search here..." aria-label="Search Button" aria-describedby="search here" />
@@ -32,16 +32,14 @@ export default function Footer() {
 
                                 <div className="row">
                                     <div className="col-6 footerpl"><ul>
-                                        <li><a href="/">লিখিত প্রশ্নোত্তর</a></li>
-                                        <li><a href="/">ভিডিও প্রশ্নোত্তর</a></li>
-                                        <li><a href="/">মহিলা অঙ্গন</a></li>
-                                        <li><a href="/">নাস্তিক্যবাদের জবাব</a></li>
+                                        <li><a href="/likhito-proshno">লিখিত প্রশ্নোত্তর</a></li>
+                                        <li><a href="/video-proshno">ভিডিও প্রশ্নোত্তর</a></li>
+                                        <li><a href="/nastikkobad">নাস্তিক্যবাদের জবাব</a></li>
                                     </ul></div>
                                     <div className="col-6"><ul>
-                                        <li><a href="/">আল কুরআন</a></li>
-                                        <li><a href="/">আল হাদীস</a></li>
-                                        <li><a href="/">দোয়া ও যিকির</a></li>
-                                        <li><a href="/">পিডিএফ কিতাব</a></li>
+                                        <li><a href="/Dua-Zikir">দোয়া ও যিকির</a></li>
+                                        <li><a href="/nari-ongon">মহিলা অঙ্গন</a></li>
+                                        <li><a href="/pdf-books">পিডিএফ কিতাব</a></li>
                                     </ul></div>
                                 </div>
                             </div>

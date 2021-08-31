@@ -1,0 +1,28 @@
+.blogCreate {
+    background-color: #2ba3ab;
+    padding: 10px 15px 5px 10px;
+    border-radius: 15px;
+}
+.blogCreate button {
+    background-color: #163c3f;
+    color: #eee;
+}
+.blogCreate button:hover {
+    background-color: #163c3f9a;
+}
+.blogPost {
+    background-color: #26676c;
+    padding: 10px 15px 5px 10px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+.blogPost a:hover .qu {
+    transition: all .2s ease-in-out;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
+}
+.blogPost .bottomButton {
+    background-color: #163c3f;
+    color: #eee;
+    padding: 5px 45px !important;
+}

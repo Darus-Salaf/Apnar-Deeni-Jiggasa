@@ -9,13 +9,11 @@ import About from './pages/About'
 import AtheistCat from './pages/Atheist/AtheistCat'
 import AtheistMain from './pages/Atheist/AtheistMain'
 import DuaZikir from './pages/DuaZikir'
-import Hadis from './pages/Hadis'
 import Home from "./pages/Home"
 import NariCategories from './pages/Mohila/NariCategories'
 import NariMain from './pages/Mohila/NariMain'
 import PdfCategories from "./pages/PDF/PdfCategories"
 import PdfMain from './pages/PDF/PdfMain'
-import Quran from './pages/Quran'
 import VideoCategories from './pages/Videos/VideoCategories'
 import WrittenCategories from './pages/Written/WrittenCategories'
 import WrittenMain from './pages/Written/WrittenMain'
@@ -30,6 +28,8 @@ import PdfList from './pages/Admin/PdfList'
 import Login from './pages/Admin/Login'
 import PrivateRoute from './pages/Admin/PrivateRoute'
 import VideoCategoryMain from './pages/Videos/VideoCategoryMain'
+import BlogList from './pages/Blog/BlogList'
+import BlogDetails from './pages/Blog/BlogDetails'
 
 export const AdminContext = createContext()
 
@@ -64,12 +64,6 @@ export default function App() {
                     <Route path="/about-us">
                       <About />
                     </Route>
-                    <Route path="/Quran">
-                      <Quran />
-                    </Route>
-                    <Route path="/Hadis">
-                      <Hadis />
-                    </Route>
                     <Route path="/Dua-Zikir">
                       <DuaZikir />
                     </Route>
@@ -102,6 +96,12 @@ export default function App() {
                     </Route>
                     <Route path="/proshnottor/nastikkobad/:athId">
                       <AtheistMain />
+                    </Route>
+                    <Route path="/blog">
+                      <BlogList />
+                    </Route>
+                    <Route path="/blog/:blogId">
+                      <BlogDetails />
                     </Route>
 
 

@@ -42,41 +42,70 @@ function a11yProps(index) {
 }
 
 export default function SimpleTabs() {
-    const [value, setValue] = React.useState(0);
 
+    const [value, setValue] = React.useState(0)
+    const [input, setInput] = React.useState({
+        name: '',
+        email: '',
+        question: '',
+        status: 'temp'
+    })
+
+    const handleInput = e => {
+        let formInput = { ...input }
+        formInput[e.target.name] = e.target.value
+        setInput(formInput)
+    }
     const handleChange = (event, newValue) => {
         setValue(newValue);
-    };
+    }
+    const handlePost = () => {
+        if (input.email && input.question) {
+
+            fetch('http://139.59.11.242/backend/api/v1/create/question', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(input)
+            })
+                .then(res => res.json())
+                .then(data => data.insertedId ? alert('Question created successfully. Please wait for admin approval.') : alert('Question creation failed !'))
+                .catch(err => alert(err.message))
+
+            console.log(input)
+        } else alert('Please enter your email address and question')
+    }
 
     return (
         <div className={c.main}>
             <p className={c2.heading}>প্রশ্ন করুন</p>
             <div className={c.form}>
-                <AppBar position="static" style={{ backgroundColor: '#163c3f'}}>
-                    <Tabs value={value} onChange={handleChange} aria-label="form tabs" style={{display: 'flex', alignItems: 'center'}}>
-                        <Tab className="bangla text-white fw-bold" style={{color: 'white', zIndex: 999, fontSize: '1.1rem'}} label="প্রশ্ন পাঠিয়ে দিন" {...a11yProps(0)} />
-                        <Tab className="bangla text-white fw-bold" style={{color: 'white', zIndex: 999, fontSize: '1.1rem'}} label="প্রশ্ন পোস্ট করুন" {...a11yProps(1)} />
+                <AppBar position="static" style={{ backgroundColor: '#163c3f' }}>
+                    <Tabs value={value} onChange={handleChange} aria-label="form tabs" style={{ display: 'flex', alignItems: 'center' }}>
+                        <Tab className="bangla text-white fw-bold" style={{ color: 'white', zIndex: 999, fontSize: '1.1rem' }} label="প্রশ্ন পাঠিয়ে দিন" {...a11yProps(0)} />
+                        <Tab className="bangla text-white fw-bold" style={{ color: 'white', zIndex: 999, fontSize: '1.1rem' }} label="প্রশ্ন পোস্ট করুন" {...a11yProps(1)} />
                     </Tabs>
                 </AppBar>
                 <TabPanel value={value} index={0}>
-                    <input className="bangla" name="name" placeholder="আপনার নাম ( ঐচ্ছিক )" type="text" />
-                    <input className="bangla" name="email" placeholder="ইমেইল এ্যাড্রেস ( আবশ্যক )" type="email" />
-                    <textarea name="question" placeholder="আপনার প্রশ্নটি লিখুন" className="bangla w-100" rows="3"></textarea>
+                    <input className="bangla" onChange={e => handleInput(e)} name="name" placeholder="আপনার নাম ( ঐচ্ছিক )" type="text" />
+                    <input className="bangla" onChange={e => handleInput(e)} name="email" placeholder="ইমেইল এ্যাড্রেস ( আবশ্যক )" type="email" />
+                    <textarea name="question" onChange={e => handleInput(e)} placeholder="আপনার প্রশ্নটি লিখুন" className="bangla w-100" rows="3"></textarea>
                     <div className="text-center mt-4 bangla">
                         <p className="bg-light py-1 rounded text-danger mb-3 warning">আপনার প্রশ্নটি সরাসরি কর্তৃপক্ষের ইমেইলে পাঠানো হবে</p>
                         <button className={c.formBtn}>Send</button>
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <input className="bangla" name="name" placeholder="আপনার নাম ( ঐচ্ছিক )" type="text" />
-                    <input className="bangla" name="email" placeholder="ইমেইল এ্যাড্রেস ( আবশ্যক )" type="email" />
-                    <textarea name="question" placeholder="আপনার প্রশ্নটি লিখুন" className="bangla w-100" rows="3"></textarea>
+                    <input className="bangla" onChange={e => handleInput(e)} name="name" placeholder="আপনার নাম ( ঐচ্ছিক )" type="text" />
+                    <input className="bangla" onChange={e => handleInput(e)} name="email" placeholder="ইমেইল এ্যাড্রেস ( আবশ্যক )" type="email" />
+                    <textarea name="question" onChange={e => handleInput(e)} placeholder="আপনার প্রশ্নটি লিখুন" className="bangla w-100" rows="3"></textarea>
                     <div className="text-center mt-4 bangla">
                         <p className="bg-light py-1 rounded text-danger mb-3 warning">আপনার প্রশ্নটি ওয়েবসাইটের ব্লগে পোস্ট হবে</p>
-                        <button className={c.formBtn}>Post</button>
+                        <button onClick={handlePost} className={c.formBtn}>Post</button>
                     </div>
                 </TabPanel>
             </div>
-        </div>
+        </div >
     );
 }

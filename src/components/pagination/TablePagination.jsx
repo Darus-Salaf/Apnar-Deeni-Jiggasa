@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { withStyles } from '@material-ui/core/styles';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import { Button } from '@material-ui/core';
-import { DeleteForever } from '@material-ui/icons';
-import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
-import CreateIcon from '@material-ui/icons/Create';
+import React, { useEffect, useState } from "react"
+import { withStyles } from '@material-ui/core/styles'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableRow from '@material-ui/core/TableRow'
+import { Button } from '@material-ui/core'
+import { DeleteForever } from '@material-ui/icons'
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
 import './pagination.css'
+import axios from "axios"
+import Edit from "../Edit"
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -33,8 +34,7 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
-export default function TablePagination({ data, action }) {
-    console.log(action)
+export default function TablePagination({ data, action, isquestion }) {
 
     const [dataLimit, setDataLimit] = useState(5)
     const [currentPage, setCurrentPage] = useState(1)
@@ -61,21 +61,84 @@ export default function TablePagination({ data, action }) {
         setCountedData(newData)
     }, [data, dataLimit, __currentPage])
 
+    const handleApprove = id => {
+        fetch(`http://localhost:5000/api/v1/update/question/${id}`)
+            .then(res => {
+                if (res.status === 200) {
+                    alert('Question approved and posted to blog')
+                    window.location.reload()
+                } else alert('Failed to approved question. Please reload the page and try again')
+            })
+            .catch(err => alert(err.message))
+    }
+    const handleDeleteQuestion = id => {
+        axios.delete(`http://localhost:5000/api/v1/delete/question/${id}`)
+            .then(res => {
+                if (res.status === 200) {
+                    alert('Successfully Deleted !')
+                    window.location.reload()
+                } else alert('Deletion failed !')
+            })
+            .catch(err => alert(err.message))
+    }
+    const handleDeletePost = id => {
+        axios.delete(`http://localhost:5000/api/v1/delete/post/${id}`)
+            .then(res => {
+                if (res.status === 200) {
+                    alert('Successfully Deleted !')
+                    window.location.reload()
+                } else alert('Deletion failed !')
+            })
+            .catch(err => alert(err.message))
+    }
+    const handleDeleteVideo = id => {
+        axios.delete(`http://localhost:5000/api/v1/delete/video/${id}`)
+            .then(res => {
+                if (res.status === 200) {
+                    alert('Successfully Deleted this video !')
+                    window.location.reload()
+                } else alert('Deletion failed !')
+            })
+            .catch(err => alert(err.message))
+    }
+    const handleDeletePdf = id => {
+        axios.delete(`http://localhost:5000/api/v1/delete/pdf/${id}`)
+            .then(res => {
+                if (res.status === 200) {
+                    alert('Successfully Deleted this pdf !')
+                    window.location.reload()
+                } else alert('Deletion failed !')
+            })
+            .catch(err => alert(err.message))
+    }
+console.log(countedData);
     return (<>
         <TableBody>
             {countedData.map((item, index) => {
                 return <StyledTableRow key={index}>
                     <StyledTableCell >
-                        {item.topic || item.name}
+                        {isquestion && item.question}
+                        {!isquestion && (item.topic || item.name)}
                     </StyledTableCell>
-                    <StyledTableCell>{item.time}</StyledTableCell>
                     {
-                        action === 'edit' ?
-                            <StyledTableCell><Button variant="contained" color="primary">এডিট <CreateIcon fontSize="small" className="ps-1 ms-2" /></Button></StyledTableCell> :
-                            <StyledTableCell><Button variant="contained" color="primary">এ্যাপ্রুভ <AssignmentTurnedInIcon fontSize="small" className="ps-1 ms-2" /></Button></StyledTableCell>
+                        action === 'edit' &&
+                        <StyledTableCell><Edit id={item._id} topic={item.topic} question={item.question} answer={item.answer} /></StyledTableCell>
+                    }
+                    {
+                        action === 'ques' &&
+                        <StyledTableCell><Button style={{ pointerEvents: item.status === 'per' ? 'none' : '' }}
+                            onClick={() => handleApprove(item._id)}
+                            variant="contained" color={item.status === 'per' ? '' : 'primary'}>
+                            {item.status === 'per' ? 'গৃহীত' : 'এ্যাপ্রুভ'} <AssignmentTurnedInIcon fontSize="small" className="ps-1 ms-2" />
+                        </Button>
+                        </StyledTableCell>
 
                     }
-                    <StyledTableCell><Button variant="contained" color="secondary">ডিলিট <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>
+                    {action === 'edit' && <StyledTableCell><Button onClick={() => handleDeletePost(item._id)} variant="contained" color="secondary">ডিলিট <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
+                    {isquestion && <StyledTableCell><Button onClick={() => handleDeleteQuestion(item._id)} variant="contained" color="secondary">ডিলিট <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
+                    {action === 'video' && <StyledTableCell><Button onClick={() => handleDeleteVideo(item._id)} variant="contained" color="secondary">ডিলিটv <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
+                    {action === 'pdf' && <StyledTableCell><Button onClick={() => handleDeletePdf(item._id)} variant="contained" color="secondary">ডিলিটp <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
+
                 </StyledTableRow>
             })}
         </TableBody>

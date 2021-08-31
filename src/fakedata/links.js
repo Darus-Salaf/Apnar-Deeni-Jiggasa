@@ -4,24 +4,16 @@ let menuLink = [
         link: '/'
     },
     {
-        name: 'কুরআন/তাফসীর',
-        link: '/Quran'
-    },
-    {
-        name: 'হাদীস',
-        link: '/Hadis'
-    },
-    {
         name: 'পিডিএফ কিতাব',
         link: '/pdf-books'
     },
     {
-        name: 'নাস্তিক্যবাদ নিরসন',
-        link: '/nastikkobad'
-    },
-    {
         name: 'দোয়া ও যিকির',
         link: '/Dua-Zikir'
+    },
+    {
+        name: 'ব্লগ',
+        link: '/blog'
     },
     {
         name: 'আমাদের সম্পর্কে',

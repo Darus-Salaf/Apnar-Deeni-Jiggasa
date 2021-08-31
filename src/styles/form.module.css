@@ -9,7 +9,7 @@
 .form {
     background-color: #26676c;
 }
-.form input, .form textarea {
+.form input, .form textarea, .create input, .create textarea {
     display: block;
     border-radius: 3px;
     width: 100%;
@@ -19,7 +19,7 @@
     padding: 5px 0 5px 20px;
     font-size: .9rem;
 }
-.form input:focus {
+.form input:focus, .create input:focus, .form textarea:focus, .create textarea:focus {
     outline: 0;
 }
 .form p {

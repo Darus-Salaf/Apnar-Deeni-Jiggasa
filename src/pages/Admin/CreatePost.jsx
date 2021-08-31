@@ -24,7 +24,7 @@ export default function CreatePost() {
     const handlePost = () => {
         if (input.cat && input.subcat && input.question && input.answer && input.topic) {
 
-            fetch('/backend/api/v1/create/post', {
+            fetch('http://139.59.11.242/backend/api/v1/create/post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -32,10 +32,14 @@ export default function CreatePost() {
                 body: JSON.stringify(input)
             })
                 .then(res => res.json())
-                .then(data => data.insertedId ? alert('Post created successfully') : alert('Post creation failed !'))
+                .then(data => {
+                    if (data.insertedId) {
+                        alert('Post created successfully')
+                        window.location.reload()
+                    } else alert('Post creation failed !')
+                })
                 .catch(err => alert(err.message))
 
-            console.log(input)
         } else alert('Please fill all the field')
     }
 
