@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function VideoList() {
 
-    const data = useFetch('http://139.59.11.242/backend/api/v1/videos')
+    const data = useFetch('/backend/api/v1/videos')
 
     return <div className="row">
         <AdminSide />

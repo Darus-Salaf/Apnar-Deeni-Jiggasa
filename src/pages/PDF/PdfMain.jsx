@@ -14,7 +14,7 @@ let width = window.innerWidth < 1230
 export default function PdfMain() {
 
     const { pdfId } = useParams()
-    let data = useFetch(`http://139.59.11.242/backend/api/v1/pdfs/${pdfId}`)
+    let data = useFetch(`/backend/api/v1/pdfs/${pdfId}`)
     console.log(data)
 
     return <div className={`${width ? 'container' : ''} my-4`}>

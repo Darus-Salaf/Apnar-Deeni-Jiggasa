@@ -21,7 +21,7 @@ export default function CreateVideo() {
     const handlePost = () => {
         if (input.cat && input.link && input.sheikh && input.topic) {
 
-            fetch('http://139.59.11.242/backend/api/v1/create/video', {
+            fetch('/backend/api/v1/create/video', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -26,7 +26,7 @@ export default function CreateBlog() {
 
         if (input.email && input.question) {
 
-            fetch('http://139.59.11.242/backend/api/v1/create/question', {
+            fetch('/backend/api/v1/create/question', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

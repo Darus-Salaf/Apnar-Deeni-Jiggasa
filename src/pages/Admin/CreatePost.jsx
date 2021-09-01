@@ -24,7 +24,7 @@ export default function CreatePost() {
     const handlePost = () => {
         if (input.cat && input.subcat && input.question && input.answer && input.topic) {
 
-            fetch('http://139.59.11.242/backend/api/v1/create/post', {
+            fetch('/backend/api/v1/create/post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

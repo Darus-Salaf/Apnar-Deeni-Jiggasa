@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function PdfList() {
 
-    const data = useFetch('http://139.59.11.242/backend/api/v1/pdfs')
+    const data = useFetch('/backend/api/v1/pdfs')
 
     return <div className="row">
         <AdminSide />

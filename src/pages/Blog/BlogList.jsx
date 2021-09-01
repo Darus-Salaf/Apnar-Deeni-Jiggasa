@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 export default function BlogList() {
 
     let lists = []
-    let data = useFetch('http://139.59.11.242/backend/api/v1/questions/per')
+    let data = useFetch('/backend/api/v1/questions/per')
     data.map(i => lists.unshift(i))
     let width = window.innerWidth < 1230
     return <div className={`${width ? 'container' : ''} my-4`}>

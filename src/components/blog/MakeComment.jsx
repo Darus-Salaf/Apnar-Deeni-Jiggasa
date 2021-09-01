@@ -31,7 +31,7 @@ export default function Answer({ id }) {
 
     const handleUpdate = () => {
         if (text.comment) {
-            fetch(`http://139.59.11.242/backend/api/v1/comment`, {
+            fetch(`/backend/api/v1/comment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

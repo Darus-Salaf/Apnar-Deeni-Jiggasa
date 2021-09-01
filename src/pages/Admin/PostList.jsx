@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function PostList() {
     
-    const data = useFetch('http://139.59.11.242/backend/api/v1/posts')
+    const data = useFetch('/backend/api/v1/posts')
     
     return <div className="row">
         <AdminSide />
