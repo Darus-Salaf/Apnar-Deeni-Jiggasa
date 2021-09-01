@@ -7,7 +7,7 @@
     background-color: #163c3f;
     color: #eee;
 }
-.blogCreate button:hover {
+.blogCreate button:hover, .blogPost button:hover {
     background-color: #163c3f9a;
 }
 .blogPost {

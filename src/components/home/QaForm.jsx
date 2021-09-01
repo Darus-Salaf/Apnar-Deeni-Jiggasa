@@ -48,7 +48,10 @@ export default function SimpleTabs() {
         name: '',
         email: '',
         question: '',
-        status: 'temp'
+        answer: '',
+        status: 'temp',
+        date: new Date(),
+        comments: []
     })
 
     const handleInput = e => {

@@ -37,7 +37,9 @@ export default function List({ topic, data, action, isquestion }) {
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>{topic}</StyledTableCell>
+                        {isquestion && <StyledTableCell StyledTableCell> সময়</StyledTableCell>}
                         {action === 'edit' && <StyledTableCell StyledTableCell> এ্যাকশন</StyledTableCell>}
+                        {isquestion && <StyledTableCell StyledTableCell> এ্যাকশন</StyledTableCell>}
                         <StyledTableCell>এ্যাকশন</StyledTableCell>
                     </TableRow>
                 </TableHead>

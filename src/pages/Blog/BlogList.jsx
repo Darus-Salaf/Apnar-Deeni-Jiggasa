@@ -2,42 +2,13 @@ import BlogLeft from "../../components/blog/BlogLeft"
 import BlogPost from "../../components/blog/BlogPost"
 import CreateBlog from "../../components/blog/CreateBlog"
 import RightSide from "../../components/home/RightSide"
+import useFetch from "../Admin/useFetch"
 
-let lists = [
-    {
-        name: 'Name 420',
-        question: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.`,
-        date: new Date()
-    },
-    {
-        name: 'Name 420',
-        question: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.`,
-        date: new Date()
-    },
-    {
-        name: 'Name 420',
-        question: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.`,
-        date: new Date()
-    },
-    {
-        name: 'Name 420',
-        question: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.`,
-        date: new Date()
-    },
-    {
-        name: 'Name 420',
-        question: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quaerat dignissimos fugiat incidunt aliquid similique nesciunt placeat quas tempore quam.`,
-        date: new Date()
-    },
-]
 
 export default function BlogList() {
-
+    
+    let lists = useFetch('http://localhost:5000/backend/api/v1/questions')
+    console.log(lists)
     let width = window.innerWidth < 1230
     let widthforSide = window.innerWidth < 1200
     return <div className={`${width ? 'container' : ''} my-4`}>

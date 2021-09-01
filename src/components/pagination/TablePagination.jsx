@@ -9,6 +9,7 @@ import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
 import './pagination.css'
 import axios from "axios"
 import Edit from "../Edit"
+import moment from "moment"
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -72,7 +73,7 @@ export default function TablePagination({ data, action, isquestion }) {
             .catch(err => alert(err.message))
     }
     const handleDeleteQuestion = id => {
-        axios.delete(`http://localhost:5000/api/v1/delete/question/${id}`)
+        axios.delete(`http://localhost:5000/backend/api/v1/delete/question/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Deleted !')
@@ -111,7 +112,7 @@ export default function TablePagination({ data, action, isquestion }) {
             })
             .catch(err => alert(err.message))
     }
-console.log(countedData);
+
     return (<>
         <TableBody>
             {countedData.map((item, index) => {
@@ -120,6 +121,7 @@ console.log(countedData);
                         {isquestion && item.question}
                         {!isquestion && (item.topic || item.name)}
                     </StyledTableCell>
+                    {isquestion && <StyledTableCell>{moment(item.date).format("DD/MM/YY, HH:mm")}</StyledTableCell>}
                     {
                         action === 'edit' &&
                         <StyledTableCell><Edit id={item._id} topic={item.topic} question={item.question} answer={item.answer} /></StyledTableCell>
