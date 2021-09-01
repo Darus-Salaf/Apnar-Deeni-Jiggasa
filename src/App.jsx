@@ -30,6 +30,7 @@ import PrivateRoute from './pages/Admin/PrivateRoute'
 import VideoCategoryMain from './pages/Videos/VideoCategoryMain'
 import BlogList from './pages/Blog/BlogList'
 import BlogDetails from './pages/Blog/BlogDetails'
+import Bookmarks from './pages/Blog/Bookmarks'
 
 export const AdminContext = createContext()
 
@@ -102,6 +103,9 @@ export default function App() {
                     </Route>
                     <Route path="/blog-post/:blogId">
                       <BlogDetails />
+                    </Route>
+                    <Route path="/blogpost/bookmark">
+                      <Bookmarks />
                     </Route>
 
 

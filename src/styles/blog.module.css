@@ -26,3 +26,26 @@
     color: #eee;
     padding: 5px 45px !important;
 }
+.createComment>.commentBox  {
+    display: flex;
+    align-items: center;
+}
+.createComment {
+    border: 1px solid #25494c;
+    border-radius: 10px;
+    padding: 10px;
+}
+.createComment textarea {
+    background-color: rgba(238, 238, 238, 0.788);
+    padding: 10px;
+    border-radius: 10px;
+}
+.createComment textarea::placeholder {
+    opacity: 1 !important;
+    color: #5a5a5a !important;
+}
+.createComment button {
+    background-color: #163c3f;
+    color: #eee;
+    margin: 10px 0;
+}

@@ -151,7 +151,7 @@ img {
     @keyframes example {
         from {font-size: .5rem;}
         to {font-size: 4rem;}
-      }
+    }
 }
 @media(max-width: 399px) {
     #notMobile {justify-content: center !important;}
