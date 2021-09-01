@@ -100,7 +100,7 @@ export default function App() {
                     <Route path="/blog">
                       <BlogList />
                     </Route>
-                    <Route path="/blog/:blogId">
+                    <Route path="/blog-post/:blogId">
                       <BlogDetails />
                     </Route>
 

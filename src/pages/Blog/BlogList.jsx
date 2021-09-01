@@ -6,8 +6,8 @@ import useFetch from "../Admin/useFetch"
 
 
 export default function BlogList() {
-    
-    let lists = useFetch('http://localhost:5000/backend/api/v1/questions')
+
+    let lists = useFetch('http://localhost:5000/backend/api/v1/questions/per')
     console.log(lists)
     let width = window.innerWidth < 1230
     let widthforSide = window.innerWidth < 1200
@@ -22,7 +22,7 @@ export default function BlogList() {
             <div className={widthforSide ? 'col-md-8' : 'col-md-6'}>
                 <CreateBlog />
                 {
-                    lists.map(list => <BlogPost name={list.name} question={list.question} date={list.date} />)
+                    lists.map(list => <BlogPost id={list._id} name={list.name} question={list.question} date={list.date} />)
                 }
             </div>
 

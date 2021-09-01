@@ -5,11 +5,11 @@ import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
 import { Button } from '@material-ui/core'
 import { DeleteForever } from '@material-ui/icons'
-import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
 import './pagination.css'
 import axios from "axios"
 import Edit from "../Edit"
 import moment from "moment"
+import Answer from "../Answer"
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -62,16 +62,6 @@ export default function TablePagination({ data, action, isquestion }) {
         setCountedData(newData)
     }, [data, dataLimit, __currentPage])
 
-    const handleApprove = id => {
-        fetch(`http://localhost:5000/api/v1/update/question/${id}`)
-            .then(res => {
-                if (res.status === 200) {
-                    alert('Question approved and posted to blog')
-                    window.location.reload()
-                } else alert('Failed to approved question. Please reload the page and try again')
-            })
-            .catch(err => alert(err.message))
-    }
     const handleDeleteQuestion = id => {
         axios.delete(`http://localhost:5000/backend/api/v1/delete/question/${id}`)
             .then(res => {
@@ -128,11 +118,10 @@ export default function TablePagination({ data, action, isquestion }) {
                     }
                     {
                         action === 'ques' &&
-                        <StyledTableCell><Button style={{ pointerEvents: item.status === 'per' ? 'none' : '' }}
-                            onClick={() => handleApprove(item._id)}
+                        <StyledTableCell><Answer question={item.question} id={item._id} status={item.status} style={{ pointerEvents: item.status === 'per' ? 'none' : '' }}
                             variant="contained" color={item.status === 'per' ? '' : 'primary'}>
-                            {item.status === 'per' ? 'গৃহীত' : 'এ্যাপ্রুভ'} <AssignmentTurnedInIcon fontSize="small" className="ps-1 ms-2" />
-                        </Button>
+                            {item.status === 'per' ? 'গৃহীত' : 'উত্তর লিখুন'}
+                        </Answer>
                         </StyledTableCell>
 
                     }
