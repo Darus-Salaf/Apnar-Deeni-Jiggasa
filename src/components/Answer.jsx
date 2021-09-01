@@ -31,7 +31,7 @@ export default function Answer({ children, question, id, status }) {
 
     const handleUpdate = () => {
         if (text.answer) {
-            fetch(`http://localhost:5000/backend/api/v1/update/question`, {
+            fetch(`http://139.59.11.242/backend/api/v1/update/question`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

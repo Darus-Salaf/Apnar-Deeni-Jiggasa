@@ -12,7 +12,7 @@ import { useEffect, useState } from "react"
 const SinglePost = ({ id }) => {
     console.log(id)
 
-    let data = useFetch(`http://localhost:5000/backend/api/v1/questions/per/${id}`)
+    let data = useFetch(`http://139.59.11.242/backend/api/v1/questions/per/${id}`)
     let time = moment(data[0]?.date)
 
     const handleUnSave = id => {

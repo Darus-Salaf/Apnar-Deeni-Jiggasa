@@ -63,7 +63,7 @@ export default function TablePagination({ data, action, isquestion }) {
     }, [data, dataLimit, __currentPage])
 
     const handleDeleteQuestion = id => {
-        axios.delete(`http://localhost:5000/backend/api/v1/delete/question/${id}`)
+        axios.delete(`http://139.59.11.242/backend/api/v1/delete/question/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Deleted !')
@@ -73,7 +73,7 @@ export default function TablePagination({ data, action, isquestion }) {
             .catch(err => alert(err.message))
     }
     const handleDeletePost = id => {
-        axios.delete(`http://localhost:5000/api/v1/delete/post/${id}`)
+        axios.delete(`http://139.59.11.242/api/v1/delete/post/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Deleted !')
@@ -83,7 +83,7 @@ export default function TablePagination({ data, action, isquestion }) {
             .catch(err => alert(err.message))
     }
     const handleDeleteVideo = id => {
-        axios.delete(`http://localhost:5000/api/v1/delete/video/${id}`)
+        axios.delete(`http://139.59.11.242/api/v1/delete/video/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Deleted this video !')
@@ -93,7 +93,7 @@ export default function TablePagination({ data, action, isquestion }) {
             .catch(err => alert(err.message))
     }
     const handleDeletePdf = id => {
-        axios.delete(`http://localhost:5000/api/v1/delete/pdf/${id}`)
+        axios.delete(`http://139.59.11.242/api/v1/delete/pdf/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Deleted this pdf !')

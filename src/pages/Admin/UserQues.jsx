@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function UserQues() {
 
-    const data = useFetch('http://localhost:5000/backend/api/v1/questions')
+    const data = useFetch('http://139.59.11.242/backend/api/v1/questions')
     console.log(data)
 
     return <div className="row">

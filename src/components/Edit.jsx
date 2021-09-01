@@ -32,7 +32,7 @@ export default function Edit({ id, topic, question, answer }) {
 
     const handleUpdate = () => {
         if (text.topic && text.answer) {
-            fetch('http://localhost:5000/api/v1/update/post', {
+            fetch('http://139.59.11.242/api/v1/update/post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
