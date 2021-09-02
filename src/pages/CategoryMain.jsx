@@ -1,5 +1,5 @@
 import QaForm from "../components/home/QaForm"
-import Dialog from "../components/Dialog"
+import QuestionPagination from '../components/pagination/QuestionPagination'
 import RightSide from "../components/home/RightSide"
 import c from '../styles/qa.module.css'
 import Spinner from "../components/Spinner"
@@ -20,9 +20,10 @@ export default function CategoryMain({ headings, data }) {
                     <div className={c.list}>
                         <ul>
                             {!data.length && <div className="py-5 my-5 text-center"><Spinner /></div>}
-                            {
-                                data.map((q, index) => <li key={index}><Dialog question={q.question} topic={q.topic} answer={q.answer} /></li>)
-                            }
+                            <QuestionPagination
+                                data={data}
+                                pageLimit={3}
+                                dataLimit={2} />
                         </ul>
                     </div>
                 </div>

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-// import { questions } from '../../fakedata/question'
 import Dialog from '../Dialog'
 import c from '../../styles/qa.module.css'
 import useFetch from '../../pages/Admin/useFetch'
