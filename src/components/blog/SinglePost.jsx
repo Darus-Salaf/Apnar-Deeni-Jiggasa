@@ -7,12 +7,11 @@ import moment from "moment"
 import c from '../../styles/blog.module.css'
 import { Link } from "react-router-dom"
 import useFetch from "../../pages/Admin/useFetch"
-import { useEffect, useState } from "react"
 
 const SinglePost = ({ id }) => {
     console.log(id)
 
-    let data = useFetch(`/backend/api/v1/questions/per/${id}`)
+    let data = useFetch(`http://apnardeenijiggasa.com/backend/api/v1/questions/per/${id}`)
     let time = moment(data[0]?.date)
 
     const handleUnSave = id => {

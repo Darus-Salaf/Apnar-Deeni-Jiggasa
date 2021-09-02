@@ -154,8 +154,10 @@ img {
     }
 }
 @media(max-width: 399px) {
-    #notMobile {justify-content: center !important;}
-    #notMobile2 {display: none !important;}
+    #notMobile {justify-content: space-between !important;}
+    .MuiInput-underline:before {
+        border-bottom: 1px solid #eeeeee5b !important;
+    }
     .qHeader>.qButton {
         height: 30px !important;
         overflow: hidden;

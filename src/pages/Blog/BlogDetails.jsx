@@ -19,7 +19,7 @@ export default function BlogDetails() {
     const [text, setText] = useState('')
 
     useEffect(() => {
-        fetch(`/backend/api/v1/questions/per/${blogId}`)
+        fetch(`http://apnardeenijiggasa.com/backend/api/v1/questions/per/${blogId}`)
             .then(res => res.json())
             .then(data => setPost(data[0]))
             .catch(err => console.log((err.message)))
@@ -27,7 +27,7 @@ export default function BlogDetails() {
 
     const handleComment = () => {
         if (text) {
-            fetch(`/backend/api/v1/comment`, {
+            fetch(`http://apnardeenijiggasa.com/backend/api/v1/comment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export default function BlogDetails() {
                     <div className="d-flex align-items-center">
                         <AccountCircleIcon fontSize="large" style={{ color: '#eee', marginRight: '0.6rem' }} />
                         <div>
-                            <p className="text-light mb-0 fw-bold">{name}</p>
+                            <p className="text-light mb-0 fw-bold">{name || 'unknown'}</p>
                             <p className="text-light mb-0" style={{ fontSize: '0.7rem' }}>{time.format("DD . MM . YY , HH:mm")}</p>
                         </div>
                     </div>

@@ -39,10 +39,21 @@
 .menuItem>ul>li>a:hover {
     background-color: #26676c;
 }
+.search {
+    position: relative;
+}
+.search>button {
+    position: absolute;
+    right: 0px;
+    background-color: transparent;
+    border-radius: 0 15px 15px 0;
+    padding: 6px 7px !important;
+    border: 0;
+}
 .search>input {
     border: 3px solid #63787a;
     border-radius: 25px;
-    padding: 5px 15px;
+    padding: 5px 30px 5px 15px;
     background-color: transparent;
 }
 .search>input:focus {
@@ -57,6 +68,10 @@
 .mobileNav {
     background-color: #163c3f;
     padding: 5px 0;
+}
+.mobileForm input[placeholder] {
+    color: #eee !important;
+    font-weight: 300;
 }
 .menuBtn {
     color: #eee !important;
@@ -103,5 +118,10 @@
     .header>h1 {font-size: 2rem;}
     .header>h5 {
         font-size: 11px;
+    }
+}
+@media (max-width: 399px) {
+    .menuBtn {
+        font-size: 1rem !important;
     }
 }

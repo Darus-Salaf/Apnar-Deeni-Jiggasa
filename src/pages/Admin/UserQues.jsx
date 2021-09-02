@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function UserQues() {
 
-    const data = useFetch('/backend/api/v1/questions')
+    const data = useFetch('http://apnardeenijiggasa.com/backend/api/v1/questions')
     console.log(data)
 
     return <div className="row">

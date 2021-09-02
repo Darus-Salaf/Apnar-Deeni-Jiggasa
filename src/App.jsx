@@ -31,6 +31,7 @@ import VideoCategoryMain from './pages/Videos/VideoCategoryMain'
 import BlogList from './pages/Blog/BlogList'
 import BlogDetails from './pages/Blog/BlogDetails'
 import Bookmarks from './pages/Blog/Bookmarks'
+import SearchResult from './components/SearchResult'
 
 export const AdminContext = createContext()
 
@@ -106,6 +107,9 @@ export default function App() {
                     </Route>
                     <Route path="/blogpost/bookmark">
                       <Bookmarks />
+                    </Route>
+                    <Route path="/search/:search">
+                      <SearchResult />
                     </Route>
 
 

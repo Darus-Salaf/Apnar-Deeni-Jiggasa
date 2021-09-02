@@ -65,7 +65,7 @@ export default function SimpleTabs() {
     const handlePost = () => {
         if (input.email && input.question) {
 
-            fetch('/backend/api/v1/create/question', {
+            fetch('http://apnardeenijiggasa.com/backend/api/v1/create/question', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

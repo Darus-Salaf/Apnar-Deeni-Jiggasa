@@ -11,7 +11,7 @@ let width = window.innerWidth < 1230
 export default function VideoCategoryMain() {
 
     const { vidId } = useParams()
-    let data = useFetch(`/backend/api/v1/videos/${vidId}`, vidId)
+    let data = useFetch(`http://apnardeenijiggasa.com/backend/api/v1/videos/${vidId}`, vidId)
     console.log(data)
 
     return <div className={`${width ? 'container' : ''} my-4`}>

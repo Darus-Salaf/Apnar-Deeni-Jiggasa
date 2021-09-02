@@ -21,7 +21,7 @@ export default function CreatePdf() {
     const handlePost = () => {
         if (input.cat && input.link && input.name && input.description) {
 
-            fetch('/backend/api/v1/create/pdf', {
+            fetch('http://apnardeenijiggasa.com/backend/api/v1/create/pdf', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
