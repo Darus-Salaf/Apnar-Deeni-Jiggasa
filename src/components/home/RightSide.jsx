@@ -3,8 +3,8 @@ import useFetch from "../../pages/Admin/useFetch"
 
 export default function RightSide() {
 
-    let data = useFetch('http://apnardeenijiggasa.com/backend/api/v1/posts/')
-    let blogs = useFetch('http://apnardeenijiggasa.com/backend/api/v1/questions/per')
+    let data = useFetch('/backend/api/v1/posts/')
+    let blogs = useFetch('/backend/api/v1/questions/per')
     console.log(blogs);
 
     return <>

@@ -12,7 +12,7 @@ const SinglePost = ({ id }) => {
 
     const history = useHistory()
 
-    let data = useFetch(`http://apnardeenijiggasa.com/backend/api/v1/questions/per/${id}`)
+    let data = useFetch(`/backend/api/v1/questions/per/${id}`)
     let time = moment(data[0]?.date)
 
     const handleUnSave = id => {

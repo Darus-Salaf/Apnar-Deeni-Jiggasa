@@ -10,7 +10,7 @@ export default function SearchResult() {
 
     const { search } = useParams()
 
-    let data = useFetch('http://apnardeenijiggasa.com/backend/api/v1/posts')
+    let data = useFetch('/backend/api/v1/posts')
     let filteredData = data.filter(item => item.answer.toLowerCase().includes(search.toLowerCase()))
     console.log(filteredData);
 
