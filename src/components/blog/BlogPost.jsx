@@ -9,6 +9,7 @@ import c from '../../styles/blog.module.css'
 
 export default function BlogPost({ id, name, question, date }) {
 
+    let width = window.innerWidth < 500
     let time = moment(date)
 
     const handleSave = id => {
@@ -32,7 +33,7 @@ export default function BlogPost({ id, name, question, date }) {
     return (
         <div className={c.blogPost}>
             <div className="row">
-                <div className="col-1"><AccountCircleIcon fontSize="large" style={{ color: '#eee' }} /></div>
+                <div className="col-1"><AccountCircleIcon fontSize={width ? 'small' : 'large'} style={{ color: '#eee', margin: '0 15px 0 0' }} /></div>
                 <div className="col-11">
                     <p className="text-light mb-0 fw-bold">{name || 'unknown'}</p>
                     <p className="text-light mb-0" style={{ fontSize: '0.7rem' }}>{time.format("DD . MM . YY , HH:mm")}</p>

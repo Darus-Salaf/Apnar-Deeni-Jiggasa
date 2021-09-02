@@ -48,10 +48,12 @@ export default function CreateBlog() {
         } else alert('Please enter your email address and question')
     }
 
+    let width = window.innerWidth < 500
+
     return (
         <div className={c.blogCreate}>
             <div className="row">
-                <div className="col-1"><AccountCircleIcon fontSize="large" style={{ color: '#eee', marginTop: '10px' }} /></div>
+                <div className="col-1"><AccountCircleIcon fontSize={width ? 'small' : 'large'} style={{ color: '#eee', marginTop: '10px' }} /></div>
                 <div className="col-11">
                     <div className={c2.create}>
                         <input className="bangla" onChange={e => handleInput(e)} name="name" placeholder="আপনার নাম ( ঐচ্ছিক )" type="text" />

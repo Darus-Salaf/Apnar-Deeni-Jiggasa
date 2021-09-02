@@ -8,10 +8,6 @@ let menuLink = [
         link: '/pdf-books'
     },
     {
-        name: 'দোয়া ও যিকির',
-        link: '/Dua-Zikir'
-    },
-    {
         name: 'ব্লগ',
         link: '/blog'
     },

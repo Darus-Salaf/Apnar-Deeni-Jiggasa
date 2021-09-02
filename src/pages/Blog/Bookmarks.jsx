@@ -22,6 +22,9 @@ export default function Bookmarks() {
                 {
                     saved.map(save => <SinglePost id={save} />)
                 }
+                {
+                    !saved.length && <h2 className="text-center text-warning">No Blog Bookmarked</h2>
+                }
             </div>
 
             <div className='col-md-4'>

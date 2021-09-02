@@ -2,6 +2,7 @@ import Header from './components/home/Header'
 import Navbar from './components/home/nav/Navbar'
 import Footer from './components/home/Footer'
 import { Fab } from '@material-ui/core'
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 import ScrollTop from './components/ScrollTop'
 import { useEffect } from 'react'
 
@@ -9,10 +10,10 @@ export default function Layout(props) {
 
     useEffect(() => {
         window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+            top: 0,
+            behavior: "smooth"
         });
-      }, [])
+    }, [])
     return (
         <>
             <main>
@@ -22,7 +23,7 @@ export default function Layout(props) {
             </main>
             <ScrollTop {...props}>
                 <Fab color="secondary" size="small" aria-label="scroll back to top">
-                    <span className="fw-bold">^</span>
+                    <span className="fw-bold"><ArrowUpwardIcon /></span>
                 </Fab>
             </ScrollTop>
             <Footer />

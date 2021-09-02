@@ -9,7 +9,7 @@ export default function Contemporary({ name, item, isWritten }) {
             <h5>{name}</h5>
             <ul style={{ display: isWritten ? 'none' : 'block' }}>
                 {
-                    item.map((i, index) => <li key={index}><Link className={c.contempList} to={`/`}>{i.name}</Link></li>)
+                    item.map((i, index) => <li key={index}><Link className={c.contempList} to={`/blog-post/${i._id}`}>{i.name}</Link></li>)
                 }
             </ul>
             <ul style={{ display: !isWritten ? 'none' : 'block' }}>

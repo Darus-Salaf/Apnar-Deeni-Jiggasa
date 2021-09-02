@@ -1,9 +1,11 @@
+import { Button } from "@material-ui/core"
 import { useEffect, useState } from "react"
 import Dialog from '../Dialog'
 import './pagination.css'
 
-export default function QuestionPagination({ data, pageLimit, dataLimit }) {
+export default function QuestionPagination({ data, pageLimit }) {
 
+    let dataLimit = 3
     let pages = Math.ceil(data.length / dataLimit)
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -16,18 +18,10 @@ export default function QuestionPagination({ data, pageLimit, dataLimit }) {
     const goToPreviousPage = () => {
         setCurrentPage(page => page - 1)
     }
-    const changePage = e => {
-        const pageNumber = Number(e.target.textContent)
-        setCurrentPage(pageNumber)
-    }
     const getPaginatedData = () => {
         const startIndex = currentPage * dataLimit - dataLimit
         const endIndex = startIndex + dataLimit;
         return data.slice(startIndex, endIndex)
-    }
-    const getPaginationGroup = () => {
-        let start = Math.floor((currentPage - 1) / pageLimit) * pageLimit
-        return new Array(pageLimit).fill().map((int, index) => start + index + 1)
     }
 
     return (
@@ -35,7 +29,30 @@ export default function QuestionPagination({ data, pageLimit, dataLimit }) {
 
             {getPaginatedData().map((d, index) => <li key={index}><Dialog topic={d.topic} question={d.question} answer={d.answer} /> </li>)}
 
-            <nav className="navbar myNav justify-content-center pt-5">
+            <nav className="navbar myNav justify-content-center mt-5 mb-3">
+                <ul className="pagination d-flex align-items-center">
+                    <li>
+                        <Button
+                            variant="contained" color="primary"
+                            onClick={goToPreviousPage}
+                            className={currentPage === 1 ? 'disabled' : ''}
+                        >
+                            prev
+                        </Button>
+                    </li>
+                    <li>
+                        <Button
+                            variant="contained" color="primary"
+                            onClick={goToNextPage}
+                            className={currentPage === pages ? 'disabled' : ''}
+                        >
+                            next
+                        </Button>
+                    </li>
+                </ul>
+            </nav>
+
+            {/* <nav className="navbar myNav justify-content-center pt-5">
                 <ul className="pagination">
                     <li className="page-item">
                         <button
@@ -67,7 +84,7 @@ export default function QuestionPagination({ data, pageLimit, dataLimit }) {
                         </button>
                     </li>
                 </ul>
-            </nav>
+            </nav> */}
         </>
     )
 }

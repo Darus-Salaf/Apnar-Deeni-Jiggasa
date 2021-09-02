@@ -5,17 +5,21 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import TelegramIcon from '@material-ui/icons/Telegram'
 import moment from "moment"
 import c from '../../styles/blog.module.css'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import useFetch from "../../pages/Admin/useFetch"
 
 const SinglePost = ({ id }) => {
-    console.log(id)
+
+    const history = useHistory()
 
     let data = useFetch(`http://apnardeenijiggasa.com/backend/api/v1/questions/per/${id}`)
     let time = moment(data[0]?.date)
 
     const handleUnSave = id => {
-
+        let saved = JSON.parse(localStorage.getItem('saved'))
+        let filterdSave = saved.filter(item => item !== id)
+        localStorage.setItem('saved', JSON.stringify(filterdSave))
+        history.push('/blog')
     }
 
     return <div className={c.blogPost}>
