@@ -42,7 +42,7 @@ export default function BlogPost({ id, name, question, date }) {
                             {question}
                         </div>
                     </Link>
-                    <div className="mb-2 d-flex justify-content-evenly align-items-center">
+                    <div className={`mb-2 d-flex justify-content-${width ? 'between' : 'evenly'} align-items-center`}>
                         <Button onClick={() => handleSave(id)} variant="contained" className={c.bottomButton}><FavoriteIcon /></Button>
                         <MakeComment id={id} />
                         <Button variant="contained" className={c.bottomButton}><TelegramIcon /></Button>

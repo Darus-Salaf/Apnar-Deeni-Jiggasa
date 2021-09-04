@@ -11,8 +11,8 @@ import useFetch from "../../pages/Admin/useFetch"
 const SinglePost = ({ id }) => {
 
     const history = useHistory()
-
-    let data = useFetch(`http://www.apnardeenijiggasa.com/backend/api/v1/questions/per/${id}`)
+    let width = window.innerWidth < 500
+    let data = useFetch(`/backend/api/v1/questions/per/${id}`)
     let time = moment(data[0]?.date)
 
     const handleUnSave = id => {
@@ -24,7 +24,7 @@ const SinglePost = ({ id }) => {
 
     return <div className={c.blogPost}>
         <div className="row">
-            <div className="col-1"><AccountCircleIcon fontSize="large" style={{ color: '#eee' }} /></div>
+            <div className="col-1"><AccountCircleIcon fontSize={width ? 'small' : 'large'} style={{ color: '#eee' }} /></div>
             <div className="col-11">
                 <p className="text-light mb-0 fw-bold">{data[0]?.name || 'unknown'}</p>
                 <p className="text-light mb-0" style={{ fontSize: '0.7rem' }}>{time.format("DD . MM . YY , HH:mm")}</p>
@@ -33,7 +33,7 @@ const SinglePost = ({ id }) => {
                         {data[0]?.question}
                     </div>
                 </Link>
-                <div className="mb-2 d-flex justify-content-evenly align-items-center">
+                <div className={`mb-2 d-flex justify-content-${width ? 'between' : 'evenly'} align-items-center`}>
                     <Button onClick={() => handleUnSave(id)} variant="contained" className={c.bottomButton}><DeleteForeverIcon color="secondary" /></Button>
                     <MakeComment id={id} />
                     <Button variant="contained" className={c.bottomButton}><TelegramIcon /></Button>
