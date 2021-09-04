@@ -7,7 +7,7 @@ import Spinner from '../Spinner'
 export default function Written() {
 
     let likhito = useFetch('/backend/api/v1/posts/likhito-proshno/tawheed')
-    let nari = useFetch('/backend/api/v1/posts/nari-ongon/salat')
+    let nari = useFetch('/backend/api/v1/posts/nari-ongon/porda')
 
     return <div className={c.bg}>
 
@@ -18,7 +18,7 @@ export default function Written() {
             <ul>
                 {!likhito.length && <div className="py-5 my-5 text-center"><Spinner /></div>}
                 {
-                    likhito.map((q, index) => <li key={index}><Dialog question={q.question} topic={q.topic} answer={q.answer} /></li>)
+                    likhito.map((q, index) => <li key={index}><Dialog question={q.question} refs={q.ref} topic={q.topic} answer={q.answer} /></li>)
                 }
             </ul>
         </div>
@@ -32,7 +32,7 @@ export default function Written() {
 
             <ul>
                 {
-                    nari.slice(0, 3).map((q, index) => <li key={index}><Dialog question={q.question} topic={q.topic} answer={q.answer} /></li>)
+                    nari.slice(0, 3).map((q, index) => <li key={index}><Dialog question={q.question} refs={q.ref} topic={q.topic} answer={q.answer} /></li>)
                 }
             </ul>
         </div>

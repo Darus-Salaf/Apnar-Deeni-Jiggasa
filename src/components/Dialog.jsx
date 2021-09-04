@@ -47,6 +47,7 @@ export default function FullScreenDialog(props) {
         setOpen(false);
     }
 
+    console.log(props.refs);
     return (
         <>
             <Button onClick={handleClickOpen}>
@@ -77,7 +78,8 @@ export default function FullScreenDialog(props) {
                     <hr style={{ height: '1px', color: '#ddd' }} />
                     <Typography style={{ whiteSpace: "pre-line", fontSize: `${size}px` }} className="question">{props.question}</Typography>
                     <h4>উত্তর : </h4> <hr style={{ height: '1px', color: '#ddd' }} />
-                    <Typography style={{ whiteSpace: "pre-line", fontSize: `${size}px` }} className="answer">{props.answer}</Typography>
+                    <Typography style={{ whiteSpace: "pre-line", fontSize: `${size}px` }} className="answer">{props.answer}</Typography> <br />
+                    <Typography style={{ borderLeft: '5px solid #26676c', backgroundColor: '#4ea6ad5c', padding: '10px', fontSize: `${size}px` }} className="reference">{props.refs && props.refs}</Typography>
                 </div>
 
             </Dialog>
