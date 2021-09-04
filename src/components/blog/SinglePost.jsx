@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core"
 import MakeComment from '../../components/blog/MakeComment'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
-import FavoriteIcon from '@material-ui/icons/Favorite'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 import TelegramIcon from '@material-ui/icons/Telegram'
 import moment from "moment"
 import c from '../../styles/blog.module.css'
@@ -12,7 +12,7 @@ const SinglePost = ({ id }) => {
 
     const history = useHistory()
 
-    let data = useFetch(`/backend/api/v1/questions/per/${id}`)
+    let data = useFetch(`http://www.apnardeenijiggasa.com/backend/api/v1/questions/per/${id}`)
     let time = moment(data[0]?.date)
 
     const handleUnSave = id => {
@@ -34,7 +34,7 @@ const SinglePost = ({ id }) => {
                     </div>
                 </Link>
                 <div className="mb-2 d-flex justify-content-evenly align-items-center">
-                    <Button onClick={() => handleUnSave(id)} variant="contained" className={c.bottomButton}><FavoriteIcon /></Button>
+                    <Button onClick={() => handleUnSave(id)} variant="contained" className={c.bottomButton}><DeleteForeverIcon color="secondary" /></Button>
                     <MakeComment id={id} />
                     <Button variant="contained" className={c.bottomButton}><TelegramIcon /></Button>
                 </div>

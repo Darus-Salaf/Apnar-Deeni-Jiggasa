@@ -4,18 +4,12 @@ import Footer from './components/home/Footer'
 import { Fab } from '@material-ui/core'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 import ScrollTop from './components/ScrollTop'
-import { useEffect } from 'react'
+import ScrollTopAuto from './components/ScrollTopAuto'
 
 export default function Layout(props) {
 
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }, [])
     return (
-        <>
+        <ScrollTopAuto>
             <main>
                 <Header />
                 <Navbar />
@@ -27,6 +21,6 @@ export default function Layout(props) {
                 </Fab>
             </ScrollTop>
             <Footer />
-        </>
+        </ScrollTopAuto>
     )
 }

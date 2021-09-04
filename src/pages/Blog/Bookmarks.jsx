@@ -20,10 +20,10 @@ export default function Bookmarks() {
                 <h1 className="text-center text-info">The Blog Posts You Loved</h1>
                 <hr style={{ height: '2px', color: '#eee' }} />
                 {
-                    saved.map(save => <SinglePost id={save} />)
+                    (saved === null || !saved.length) && <h2 className="text-center text-warning">No Blog Bookmarked</h2>
                 }
                 {
-                    !saved.length && <h2 className="text-center text-warning">No Blog Bookmarked</h2>
+                    saved !== null && saved.map(save => <SinglePost id={save} />)
                 }
             </div>
 

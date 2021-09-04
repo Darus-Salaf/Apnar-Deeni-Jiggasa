@@ -32,6 +32,7 @@ import BlogList from './pages/Blog/BlogList'
 import BlogDetails from './pages/Blog/BlogDetails'
 import Bookmarks from './pages/Blog/Bookmarks'
 import SearchResult from './components/SearchResult'
+import Reports from './pages/Admin/Reports'
 
 export const AdminContext = createContext()
 
@@ -57,7 +58,7 @@ export default function App() {
         <Router>
           <Switch>
             {
-              loading ? <div className="loading">আপনার দ্বীনি জিজ্ঞাসা</div> :
+              loading ? <div className="loading" style={{textAlign: 'center'}}>আপনার <br /> দ্বীনি <br /> জিজ্ঞাসা</div> :
                 <>
                   <Layout>
                     <Route path="/" exact>
@@ -139,6 +140,9 @@ export default function App() {
                     </PrivateRoute>
                     <PrivateRoute path="/user-question-list">
                       <UserQues />
+                    </PrivateRoute>
+                    <PrivateRoute path="/reports">
+                      <Reports />
                     </PrivateRoute>
                   </Layout>
 

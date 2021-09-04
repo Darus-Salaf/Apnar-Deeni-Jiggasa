@@ -19,7 +19,7 @@ export default function BlogDetails() {
     const [text, setText] = useState('')
 
     useEffect(() => {
-        fetch(`/backend/api/v1/questions/per/${blogId}`)
+        fetch(`http://www.apnardeenijiggasa.com/backend/api/v1/questions/per/${blogId}`)
             .then(res => res.json())
             .then(data => setPost(data[0]))
             .catch(err => console.log((err.message)))
@@ -105,7 +105,7 @@ export default function BlogDetails() {
                         <hr style={{ height: '2px', color: '#eee' }} />
 
                         {
-                            comments?.map(comment => <Comment comment={comment} />)
+                            comments?.map(comment => <Comment id={_id} comment={comment} />)
                         }
 
                         <div className={c.createComment}>

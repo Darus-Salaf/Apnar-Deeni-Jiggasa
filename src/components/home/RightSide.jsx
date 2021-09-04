@@ -5,7 +5,6 @@ export default function RightSide() {
 
     let data = useFetch('/backend/api/v1/posts/')
     let blogs = useFetch('/backend/api/v1/questions/per')
-    console.log(blogs);
 
     return <>
         <Contemporary name={'সাম্প্রতিক বিষয়াদি'} item={data.slice(0, 5)} isWritten={true} />
