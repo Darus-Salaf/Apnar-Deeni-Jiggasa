@@ -49,3 +49,14 @@
     color: #eee;
     margin: 10px 0;
 }
+
+@media (max-width: 500px) {
+    .blogPost .bottomButton {
+        padding: 5px 30px !important;
+    }
+}
+@media (max-width: 400px) {
+    .blogPost .bottomButton {
+        padding: 3px 25px !important;
+    }
+}

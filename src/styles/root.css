@@ -26,7 +26,7 @@ margin: 0 auto;
 }
 @keyframes example {
     from {font-size: .5rem;}
-    to {font-size: 2.5rem;}
+    to {font-size: 4rem;}
   }
 footer {
     background-color: #163c3f;
@@ -150,7 +150,7 @@ img {
 @media(min-width: 767px) {
     @keyframes example {
         from {font-size: .5rem;}
-        to {font-size: 4rem;}
+        to {font-size: 6rem;}
     }
 }
 @media(max-width: 399px) {

@@ -15,7 +15,7 @@ export default function Contemporary({ name, item, isWritten }) {
             <ul style={{ display: !isWritten ? 'none' : 'block' }}>
                 {!item.length && <div className="py-5 my-5 text-center"><Spinner /></div>}
                 {
-                    item.map((i, index) => <li key={index}><Dialog question={i.question} topic={i.topic} answer={i.answer} /></li>)
+                    item.map((i, index) => <li key={index}><Dialog question={i.question} refs={i.ref} topic={i.topic} answer={i.answer} /></li>)
                 }
             </ul>
         </div>
