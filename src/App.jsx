@@ -8,7 +8,6 @@ import Layout from './Layout'
 import About from './pages/About'
 import AtheistCat from './pages/Atheist/AtheistCat'
 import AtheistMain from './pages/Atheist/AtheistMain'
-import DuaZikir from './pages/DuaZikir'
 import Home from "./pages/Home"
 import NariCategories from './pages/Mohila/NariCategories'
 import NariMain from './pages/Mohila/NariMain'
@@ -33,6 +32,7 @@ import BlogDetails from './pages/Blog/BlogDetails'
 import Bookmarks from './pages/Blog/Bookmarks'
 import SearchResult from './components/SearchResult'
 import Reports from './pages/Admin/Reports'
+import DuaZikr from './pages/DuaZikr'
 
 export const AdminContext = createContext()
 
@@ -67,8 +67,8 @@ export default function App() {
                     <Route path="/about-us">
                       <About />
                     </Route>
-                    <Route path="/Dua-Zikir">
-                      <DuaZikir />
+                    <Route path="/dua-zikr">
+                      <DuaZikr />
                     </Route>
                     <Route path="/likhito-proshno">
                       <WrittenCategories />
