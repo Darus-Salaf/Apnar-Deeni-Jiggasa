@@ -7,6 +7,8 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import { useState } from 'react'
 import c from '../styles/dua.module.css'
+import Spinner from '../components/Spinner';
+import DuaFazilat from '../components/DuaFazilat';
 
 export default function DuaZikr() {
 
@@ -49,19 +51,9 @@ export default function DuaZikr() {
         setBanglaSize(newValue)
     }
 
+    let width = window.innerWidth < 1030
 
-    // const handleClickOpen = () => {
-    //     setOpen(true);
-    // };
-
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
-
-
-    let width = window.innerWidth < 1230
-
-    return <div className={`${width ? 'container' : ''} my-4`}>
+    return <div className={`${width ? 'container' : 'mx-3'} my-4`}>
         <div className="row">
             <div className={`col-md-3 ${c.desktopcat}`}>
                 <div className="left">
@@ -72,6 +64,7 @@ export default function DuaZikr() {
                     <div className={c.duabox}>
                         <h2 className="text-center text-light">দু'আসমূহ</h2>
                         <ul>
+                            { !name.length && <div className="text-center pt-5"><Spinner /></div> }
                             {
                                 name.map((item, index) => {
                                     return <li style={{ backgroundColor: item[0] === background && '#163c3f' }} key={index}>
@@ -85,7 +78,7 @@ export default function DuaZikr() {
                 </div>
             </div>
 
-            <div className="col-md-7">
+            <div className={width ? "col-12" : "col-md-7"}>
                 <div className={c.dua}>
 
                     <div className={c.mobileHolder}>
@@ -124,7 +117,7 @@ export default function DuaZikr() {
                                 aria-labelledby="alert-dialog-title"
                                 aria-describedby="alert-dialog-description"
                             >
-                                <div className={c.right}>
+                                <div className={c.right} style={{width: '300px'}}>
                                     <h4 className="text-center pt-3 text-light">ফন্ট সেটিংস</h4>
                                     <p className="pt-2 mb-0 px-2 text-light"><strong>ফন্ট স্টাইল</strong></p>
                                     <div className="px-2 text-light">
@@ -145,11 +138,10 @@ export default function DuaZikr() {
                         </span>
                     </div>
 
-
                     <h1 className="text-center">দোয়া ও যিকরসমূহ</h1>
                     {
                         !selected.length && <div>
-                            <p>দু'আ ও যিকরের ফযীলত</p>
+                            <DuaFazilat />
                         </div>
                     }
                     {

@@ -77,25 +77,32 @@
     .ref {
         font-size: 0.8rem;
     }
-.dua {
-    background-color: #26676c;
-    overflow: hidden;
-    color: #eee;
-    border-radius: 15px 15px 0 0;
-}
-.right {
-    height: 70vh;
-}
-.mobileHolder {
-    display: inline !important;
-}
-.mobileBtn>button {
-    background-color: darkcyan;
-    width: 50% !important;
-    border-radius: 0 !important;
+    .dua {
+        background-color: #26676c;
+        overflow: hidden;
+        color: #eee;
+        border-radius: 15px 15px 0 0;
+    }
+    .right {
+        height: 70vh;
+    }
+    .mobileHolder {
+        display: inline !important;
+    }
+    .mobileBtn>button {
+        background-color: darkcyan;
+        color: #eee;
+        font-weight: 600;
+        width: 50% !important;
+        border-radius: 0 !important;
+    }
+    
+    .fontarby {
+    font-family: 'Lateef', cursive !important;
+    font-size: 2rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1030px) {
     .desktopcat {
         display: none;
     }
@@ -103,7 +110,7 @@
         padding-top: 15px;
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 1031px) {
     .mobileHolder {
         display: none !important;
     }
