@@ -79,16 +79,35 @@
     }
 .dua {
     background-color: #26676c;
-    padding-top: 15px;
+    overflow: hidden;
     color: #eee;
     border-radius: 15px 15px 0 0;
 }
 .right {
     height: 70vh;
 }
+.mobileHolder {
+    display: inline !important;
+}
+.mobileBtn>button {
+    background-color: darkcyan;
+    width: 50% !important;
+    border-radius: 0 !important;
+}
 
 @media (max-width: 767px) {
-    .mobiledua {
+    .desktopcat {
         display: none;
+    }
+    .dua h1 {
+        padding-top: 15px;
+    }
+}
+@media (min-width: 768px) {
+    .mobileHolder {
+        display: none !important;
+    }
+    .dua {
+        padding-top: 15px;
     }
 }

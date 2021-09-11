@@ -19,6 +19,7 @@ export default function DuaZikr() {
     const [arabicSize, setArabicSize] = useState(30)
     const [banglaSize, setBanglaSize] = useState(16)
     const [open, setOpen] = React.useState(false);
+    const [open2, setOpen2] = React.useState(false);
 
     useEffect(() => {
         fetch('http://apnardeenijiggasa.com/backend/api/v1/duaname')
@@ -49,20 +50,20 @@ export default function DuaZikr() {
     }
 
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    // const handleClickOpen = () => {
+    //     setOpen(true);
+    // };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    // const handleClose = () => {
+    //     setOpen(false);
+    // };
 
 
     let width = window.innerWidth < 1230
 
     return <div className={`${width ? 'container' : ''} my-4`}>
         <div className="row">
-            <div className={`col-md-3 ${c.mobiledua}`}>
+            <div className={`col-md-3 ${c.desktopcat}`}>
                 <div className="left">
                     <div className={c.searchbox}>
                         <h3 className="text-center">দোয়া খুঁজুন</h3>
@@ -87,30 +88,61 @@ export default function DuaZikr() {
             <div className="col-md-7">
                 <div className={c.dua}>
 
-                    <div>
-                        <Button onClick={handleClickOpen}>
-                            Open alert dialog
-                        </Button>
-                        <Dialog
-                            open={open}
-                            onClose={handleClose}
-                            aria-labelledby="alert-dialog-title"
-                            aria-describedby="alert-dialog-description"
-                        >
-                            <div className={c.duabox}>
-                                <h2 className="text-center text-light">দু'আসমূহ</h2>
-                                <ul style={{marginBottom: '0px'}}>
-                                    {
-                                        name.map((item, index) => {
-                                            return <li style={{ backgroundColor: item[0] === background && '#163c3f' }} key={index}>
-                                                <button onClick={() => handleDuaNumber(item[0])}>{item[1]}
-                                                </button></li>
-                                        })
-                                    }
-                                </ul>
-                                <p className="text-center text-light py-1" style={{ borderTop: '2px solid #9e9e9e' }}>"হিসনুল মুসলিম" থেকে</p>
-                            </div>
-                        </Dialog>
+                    <div className={c.mobileHolder}>
+                        <span className={c.mobileBtn}>
+                            <Button style={{borderRight: '2px solid #163c3f'}} onClick={() => setOpen(true)}>
+                                দু'আ নির্বাচন করুন
+                            </Button>
+                            <Dialog
+                                open={open}
+                                onClose={() => setOpen(false)}
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
+                            >
+                                <div className={c.duabox}>
+                                    <h2 className="text-center text-light">দু'আসমূহ</h2>
+                                    <ul style={{ marginBottom: '0px' }}>
+                                        {
+                                            name.map((item, index) => {
+                                                return <li style={{ backgroundColor: item[0] === background && '#163c3f' }} key={index}>
+                                                    <button onClick={() => handleDuaNumber(item[0])}>{item[1]}
+                                                    </button></li>
+                                            })
+                                        }
+                                    </ul>
+                                    <p className="text-center text-light py-1" style={{ borderTop: '2px solid #9e9e9e' }}>"হিসনুল মুসলিম" থেকে</p>
+                                </div>
+                            </Dialog>
+                        </span>
+                        <span className={c.mobileBtn}>
+                            <Button style={{borderLeft: '2px solid #163c3f'}} onClick={() => setOpen2(true)}>
+                                ফন্ট সেটিং করুন
+                            </Button>
+                            <Dialog
+                                open={open2}
+                                onClose={() => setOpen2(false)}
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
+                            >
+                                <div className={c.right}>
+                                    <h4 className="text-center pt-3 text-light">ফন্ট সেটিংস</h4>
+                                    <p className="pt-2 mb-0 px-2 text-light"><strong>ফন্ট স্টাইল</strong></p>
+                                    <div className="px-2 text-light">
+                                        <RadioGroup aria-label="gender" name="gender1" value={value} onChange={e => setValue(e.target.value)}>
+                                            <FormControlLabel value="1" control={<Radio style={{ color: '#eee' }} />} label="Qalam" />
+                                            <FormControlLabel value="2" control={<Radio style={{ color: '#eee' }} />} label="Uthmani" />
+                                            <FormControlLabel value="3" control={<Radio style={{ color: '#eee' }} />} label="Simple" />
+                                        </RadioGroup>
+                                    </div> <hr style={{ color: '#eee', height: '1px' }} />
+                                    <div className="px-2">
+                                        <p className="pt-2 mb-0 text-light"><strong>ফন্ট সাইজ (আরবী)</strong></p>
+                                        <Slider style={{ color: '#eee' }} value={arabicSize} onChange={handleArabic} aria-labelledby="font-size-slider" />
+                                        <p className="pt-2 mb-0 text-light"><strong>ফন্ট সাইজ (বাংলা)</strong></p>
+                                        <Slider style={{ color: '#eee' }} value={banglaSize} onChange={handleBangla} aria-labelledby="font-size-slider" />
+                                    </div>
+                                </div>
+                            </Dialog>
+                        </span>
                     </div>
 
 
@@ -146,7 +178,7 @@ export default function DuaZikr() {
                     }
                 </div>
             </div>
-            <div className={`col-md-2 ${c.mobiledua}`}>
+            <div className={`col-md-2 ${c.desktopcat}`}>
                 <div className={c.right}>
                     <h4 className="text-center pt-3 text-light">ফন্ট সেটিংস</h4>
                     <p className="pt-2 mb-0 px-2 text-light"><strong>ফন্ট স্টাইল</strong></p>
