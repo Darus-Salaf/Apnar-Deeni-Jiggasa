@@ -12,7 +12,6 @@ export default function SearchResult() {
 
     let data = useFetch('/backend/api/v1/posts')
     let filteredData = data.filter(item => item.answer.toLowerCase().includes(search.toLowerCase()))
-    console.log(filteredData);
 
     let width = window.innerWidth < 1230
 

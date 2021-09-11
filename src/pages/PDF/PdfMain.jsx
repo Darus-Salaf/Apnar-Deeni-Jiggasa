@@ -15,7 +15,6 @@ export default function PdfMain() {
 
     const { pdfId } = useParams()
     let data = useFetch(`/backend/api/v1/pdfs/${pdfId}`)
-    console.log(data)
 
     return <div className={`${width ? 'container' : ''} my-4`}>
 

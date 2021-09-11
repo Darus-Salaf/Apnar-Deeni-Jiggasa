@@ -47,7 +47,6 @@ export default function FullScreenDialog(props) {
         setOpen(false);
     }
 
-    console.log(props.refs);
     return (
         <>
             <Button onClick={handleClickOpen}>

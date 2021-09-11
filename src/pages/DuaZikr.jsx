@@ -9,6 +9,7 @@ import { useState } from 'react'
 import c from '../styles/dua.module.css'
 import Spinner from '../components/Spinner';
 import DuaFazilat from '../components/DuaFazilat';
+import { ArabicTypo } from '../styles/muicustoms';
 
 export default function DuaZikr() {
 
@@ -16,12 +17,13 @@ export default function DuaZikr() {
     const [dua, setDua] = useState([])
     const [title, setTitle] = useState([])
     const [selected, setSelected] = useState([])
+    const [input, setInput] = useState('')
     const [background, setBackground] = useState(null)
-    const [value, setValue] = React.useState('1');
+    const [fontValue, setFontValue] = useState('1')
     const [arabicSize, setArabicSize] = useState(30)
     const [banglaSize, setBanglaSize] = useState(16)
-    const [open, setOpen] = React.useState(false);
-    const [open2, setOpen2] = React.useState(false);
+    const [open, setOpen] = useState(false)
+    const [open2, setOpen2] = useState(false)
 
     useEffect(() => {
         fetch('http://apnardeenijiggasa.com/backend/api/v1/duaname')
@@ -51,6 +53,8 @@ export default function DuaZikr() {
         setBanglaSize(newValue)
     }
 
+    let searched = name.filter(item => item[1].includes(input))
+
     let width = window.innerWidth < 1030
 
     return <div className={`${width ? 'container' : 'mx-3'} my-4`}>
@@ -59,14 +63,14 @@ export default function DuaZikr() {
                 <div className="left">
                     <div className={c.searchbox}>
                         <h3 className="text-center">দোয়া খুঁজুন</h3>
-                        <form><input type="text" placeholder="দু'আর নাম সার্চ করুন" /></form>
+                        <input onChange={e => setInput(e.target.value)} type="text" placeholder="দু'আর নাম সার্চ করুন" />
                     </div>
                     <div className={c.duabox}>
                         <h2 className="text-center text-light">দু'আসমূহ</h2>
                         <ul>
-                            { !name.length && <div className="text-center pt-5"><Spinner /></div> }
+                            {!name.length && <div className="text-center pt-5"><Spinner /></div>}
                             {
-                                name.map((item, index) => {
+                                searched.map((item, index) => {
                                     return <li style={{ backgroundColor: item[0] === background && '#163c3f' }} key={index}>
                                         <button onClick={() => handleDuaNumber(item[0])}>{item[1]}
                                         </button></li>
@@ -83,7 +87,7 @@ export default function DuaZikr() {
 
                     <div className={c.mobileHolder}>
                         <span className={c.mobileBtn}>
-                            <Button style={{borderRight: '2px solid #163c3f'}} onClick={() => setOpen(true)}>
+                            <Button style={{ borderRight: '2px solid #163c3f' }} onClick={() => setOpen(true)}>
                                 দু'আ নির্বাচন করুন
                             </Button>
                             <Dialog
@@ -108,7 +112,7 @@ export default function DuaZikr() {
                             </Dialog>
                         </span>
                         <span className={c.mobileBtn}>
-                            <Button style={{borderLeft: '2px solid #163c3f'}} onClick={() => setOpen2(true)}>
+                            <Button style={{ borderLeft: '2px solid #163c3f' }} onClick={() => setOpen2(true)}>
                                 ফন্ট সেটিং করুন
                             </Button>
                             <Dialog
@@ -117,14 +121,14 @@ export default function DuaZikr() {
                                 aria-labelledby="alert-dialog-title"
                                 aria-describedby="alert-dialog-description"
                             >
-                                <div className={c.right} style={{width: '300px'}}>
+                                <div className={c.right} style={{ width: '300px' }}>
                                     <h4 className="text-center pt-3 text-light">ফন্ট সেটিংস</h4>
                                     <p className="pt-2 mb-0 px-2 text-light"><strong>ফন্ট স্টাইল</strong></p>
                                     <div className="px-2 text-light">
-                                        <RadioGroup aria-label="gender" name="gender1" value={value} onChange={e => setValue(e.target.value)}>
-                                            <FormControlLabel value="1" control={<Radio style={{ color: '#eee' }} />} label="Qalam" />
-                                            <FormControlLabel value="2" control={<Radio style={{ color: '#eee' }} />} label="Uthmani" />
-                                            <FormControlLabel value="3" control={<Radio style={{ color: '#eee' }} />} label="Simple" />
+                                        <RadioGroup aria-label="gender" name="fonts" value={fontValue} onChange={e => setFontValue(e.target.value)}>
+                                            <FormControlLabel value="1" control={<Radio style={{ color: '#eee' }} />} label="Latef" />
+                                            <FormControlLabel value="2" control={<Radio style={{ color: '#eee' }} />} label="Amiri" />
+                                            <FormControlLabel value="3" control={<Radio style={{ color: '#eee' }} />} label="Tajawal" />
                                         </RadioGroup>
                                     </div> <hr style={{ color: '#eee', height: '1px' }} />
                                     <div className="px-2">
@@ -151,7 +155,8 @@ export default function DuaZikr() {
                                     title.map(i => i[1])
                                 }
                             </p>
-                            <p className={c.arabic} style={{ fontSize: `${arabicSize}px` }}>{item[6]}</p> <hr style={{ color: '#eee', height: '1px' }} />
+                            <p className={c.arabic} style={{ fontSize: `${arabicSize}px` }}><ArabicTypo font={fontValue}>{item[6]}</ArabicTypo></p>
+                            <hr style={{ color: '#eee', height: '1px' }} />
                             <div className={c.transliteration}>
                                 <p style={{ fontSize: `${banglaSize}px` }}><strong>উচ্চারণঃ</strong></p>
                                 <p style={{ fontSize: `${banglaSize}px` }}>{item[7]}</p>
@@ -175,10 +180,10 @@ export default function DuaZikr() {
                     <h4 className="text-center pt-3 text-light">ফন্ট সেটিংস</h4>
                     <p className="pt-2 mb-0 px-2 text-light"><strong>ফন্ট স্টাইল</strong></p>
                     <div className="px-2 text-light">
-                        <RadioGroup aria-label="gender" name="gender1" value={value} onChange={e => setValue(e.target.value)}>
-                            <FormControlLabel value="1" control={<Radio style={{ color: '#eee' }} />} label="Qalam" />
-                            <FormControlLabel value="2" control={<Radio style={{ color: '#eee' }} />} label="Uthmani" />
-                            <FormControlLabel value="3" control={<Radio style={{ color: '#eee' }} />} label="Simple" />
+                        <RadioGroup aria-label="gender" name="fonts" value={fontValue} onChange={e => setFontValue(e.target.value)}>
+                            <FormControlLabel value="1" control={<Radio style={{ color: '#eee' }} />} label="Latef" />
+                            <FormControlLabel value="2" control={<Radio style={{ color: '#eee' }} />} label="Amiri" />
+                            <FormControlLabel value="3" control={<Radio style={{ color: '#eee' }} />} label="Tajawal" />
                         </RadioGroup>
                     </div> <hr style={{ color: '#eee', height: '1px' }} />
                     <div className="px-2">

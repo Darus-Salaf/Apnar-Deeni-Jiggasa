@@ -8,8 +8,6 @@ let width = window.innerWidth < 1230
 
 export default function CategoryMain({ headings, data }) {
 
-    console.log(data, headings)
-
     return <div className={`${width ? 'container' : ''} my-4`}>
 
         <div className="row">

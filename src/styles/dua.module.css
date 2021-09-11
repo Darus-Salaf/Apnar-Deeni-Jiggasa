@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lateef&display=swap');
-
 .duabox, .right {
     background-color: darkcyan;
     margin-top: 10px;
@@ -49,7 +47,7 @@
     border-radius: 0 15px 0 15px;
     color: #eee;
 }
-.searchbox>form>input {
+.searchbox>input {
     text-align: center;
     border: 0;
     padding: 6px 10px;
@@ -57,10 +55,10 @@
     background-color: darkcyan;
     color: #eee !important;
 }
-.searchbox>form>input::placeholder {
+.searchbox>input::placeholder {
     color: rgba(238, 238, 238, 0.719) !important;
 }
-.searchbox>form>input:focus {
+.searchbox>input:focus {
     outline: 0;
 }
   .duaContainer {
@@ -72,7 +70,6 @@
     }
     .duaContainer .arabic {
         text-align: end;
-        font-family: 'Lateef', cursive !important;
     }
     .ref {
         font-size: 0.8rem;

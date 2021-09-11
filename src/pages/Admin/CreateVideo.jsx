@@ -32,7 +32,6 @@ export default function CreateVideo() {
                 .then(data => data.insertedId ? alert('Post created successfully') : alert('Post creation failed !'))
                 .catch(err => alert(err.message))
 
-            console.log(input)
         } else alert('Please fill all the field')
     }
 

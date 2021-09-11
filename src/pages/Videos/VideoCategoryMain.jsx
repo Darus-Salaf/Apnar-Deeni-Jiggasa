@@ -12,7 +12,6 @@ export default function VideoCategoryMain() {
 
     const { vidId } = useParams()
     let data = useFetch(`/backend/api/v1/videos/${vidId}`, vidId)
-    console.log(data)
 
     return <div className={`${width ? 'container' : ''} my-4`}>
 

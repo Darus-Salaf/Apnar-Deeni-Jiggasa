@@ -32,7 +32,6 @@ export default function CreatePdf() {
                 .then(data => data.insertedId ? alert('PDF created successfully') : alert('PDF creation failed !'))
                 .catch(err => alert(err.message))
 
-            console.log(input)
         } else alert('Please fill all the field')
     }
 
