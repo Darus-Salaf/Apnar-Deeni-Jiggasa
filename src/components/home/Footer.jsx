@@ -52,9 +52,9 @@ export default function Footer() {
                                 <div className="footerpl">
                                     <p>Md Razib Ahmed</p>
                                     <p>+966531080105</p>
-                                    <p>ask@apnarjiggasa.com</p>
                                     <p>razeemrazib@gmail.com</p>
-                                    <p>15, Gazi Road, Dhaka-1154</p>
+                                    <p>Al Madrasha Street</p>
+                                    <p>Al Jubail, KSA</p>
                                 </div>
                             </div>
                         </div>

@@ -33,8 +33,12 @@ import Bookmarks from './pages/Blog/Bookmarks'
 import SearchResult from './components/SearchResult'
 import Reports from './pages/Admin/Reports'
 import DuaZikr from './pages/DuaZikr'
+import ModRoute from './pages/Admin/Moderator/ModRoute'
+import ModeratorLogin from './pages/Admin/Moderator/ModeratorLogin'
+import ModerateMain from './pages/Admin/Moderator/ModerateMain'
 
 export const AdminContext = createContext()
+export const ModeratorContext = createContext()
 
 export default function App() {
 
@@ -43,6 +47,12 @@ export default function App() {
     password: '',
     code: ''
   })
+  const [isMod, setIsMod] = useState({
+    email: '',
+    password: '',
+    ismod: false
+  })
+
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -58,7 +68,7 @@ export default function App() {
         <Router>
           <Switch>
             {
-              loading ? <div className="loading" style={{textAlign: 'center'}}>আপনার <br /> দ্বীনি <br /> জিজ্ঞাসা</div> :
+              loading ? <div className="loading" style={{ textAlign: 'center' }}>আপনার <br /> দ্বীনি <br /> জিজ্ঞাসা</div> :
                 <>
                   <Layout>
                     <Route path="/" exact>
@@ -113,10 +123,10 @@ export default function App() {
                       <SearchResult />
                     </Route>
 
-
                     <Route path="/login">
                       <Login />
                     </Route>
+
                     <PrivateRoute path="/admin">
                       <Admin />
                     </PrivateRoute>
@@ -144,8 +154,18 @@ export default function App() {
                     <PrivateRoute path="/reports">
                       <Reports />
                     </PrivateRoute>
-                  </Layout>
 
+                    <ModeratorContext.Provider value={[isMod, setIsMod]}>
+                      <Route path="/moderate-login">
+                        <ModeratorLogin />
+                      </Route>
+                      <ModRoute path="/moderator">
+                        <ModerateMain />
+                      </ModRoute>
+                    </ModeratorContext.Provider>
+
+
+                  </Layout>
                 </>
             }
           </Switch>
