@@ -6,16 +6,13 @@ export default function PrivateRoute({ children, ...rest }) {
 
     // eslint-disable-next-line
     const [isAdmin, setIsAdmin] = useContext(AdminContext)
-    let email = localStorage.getItem('email')
-    let password = localStorage.getItem('password')
-    let code = localStorage.getItem('code')
-    let fromContext = isAdmin.email !== '' && isAdmin.password !== '' && isAdmin.code !== ''
-    let fromlocal = email && password && code
+    let localToken = localStorage.getItem('admin_token')
+    let contextToken = isAdmin.admin_token !== ''
 
     return (
         <Route
             {...rest}
-            render={({ location }) => (fromContext || fromlocal) ? (
+            render={({ location }) => (contextToken || localToken) ? (
                 children
             ) :
                 (<Redirect

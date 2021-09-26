@@ -36,6 +36,7 @@ import DuaZikr from './pages/DuaZikr'
 import ModRoute from './pages/Admin/Moderator/ModRoute'
 import ModeratorLogin from './pages/Admin/Moderator/ModeratorLogin'
 import ModerateMain from './pages/Admin/Moderator/ModerateMain'
+import Moderators from './pages/Admin/Moderators'
 
 export const AdminContext = createContext()
 export const ModeratorContext = createContext()
@@ -43,14 +44,10 @@ export const ModeratorContext = createContext()
 export default function App() {
 
   const [isAdmin, setIsAdmin] = useState({
-    email: '',
-    password: '',
-    code: ''
+    admin_token: ''
   })
   const [isMod, setIsMod] = useState({
-    email: '',
-    password: '',
-    ismod: false
+    moderator_token: ''
   })
 
   const [loading, setLoading] = useState(false)
@@ -65,111 +62,114 @@ export default function App() {
   return (
     <>
       <AdminContext.Provider value={[isAdmin, setIsAdmin]}>
-        <Router>
-          <Switch>
-            {
-              loading ? <div className="loading" style={{ textAlign: 'center' }}>আপনার <br /> দ্বীনি <br /> জিজ্ঞাসা</div> :
-                <>
-                  <Layout>
-                    <Route path="/" exact>
-                      <Home />
-                    </Route>
-                    <Route path="/about-us">
-                      <About />
-                    </Route>
-                    <Route path="/dua-zikr">
-                      <DuaZikr />
-                    </Route>
-                    <Route path="/likhito-proshno">
-                      <WrittenCategories />
-                    </Route>
-                    <Route path="/proshnottor/likhito-proshno/:likId">
-                      <WrittenMain />
-                    </Route>
-                    <Route path="/video-proshno">
-                      <VideoCategories />
-                    </Route>
-                    <Route path="/videos/video-proshno/:vidId">
-                      <VideoCategoryMain />
-                    </Route>
-                    <Route path="/pdf-books">
-                      <PdfCategories />
-                    </Route>
-                    <Route path="/e-books/pdf-books/:pdfId">
-                      <PdfMain />
-                    </Route>
-                    <Route path="/nari-ongon">
-                      <NariCategories />
-                    </Route>
-                    <Route path="/proshnottor/nari-ongon/:nariId">
-                      <NariMain />
-                    </Route>
-                    <Route path="/nastikkobad">
-                      <AtheistCat />
-                    </Route>
-                    <Route path="/proshnottor/nastikkobad/:athId">
-                      <AtheistMain />
-                    </Route>
-                    <Route path="/blog">
-                      <BlogList />
-                    </Route>
-                    <Route path="/blog-post/:blogId">
-                      <BlogDetails />
-                    </Route>
-                    <Route path="/blogpost/bookmark">
-                      <Bookmarks />
-                    </Route>
-                    <Route path="/search/:search">
-                      <SearchResult />
-                    </Route>
+        <ModeratorContext.Provider value={[isMod, setIsMod]}>
+          <Router>
+            <Switch>
+              {
+                loading ? <div className="loading" style={{ textAlign: 'center' }}>আপনার <br /> দ্বীনি <br /> জিজ্ঞাসা</div> :
+                  <>
+                    <Layout>
+                      <Route path="/" exact>
+                        <Home />
+                      </Route>
+                      <Route path="/about-us">
+                        <About />
+                      </Route>
+                      <Route path="/dua-zikr">
+                        <DuaZikr />
+                      </Route>
+                      <Route path="/likhito-proshno">
+                        <WrittenCategories />
+                      </Route>
+                      <Route path="/proshnottor/likhito-proshno/:likId">
+                        <WrittenMain />
+                      </Route>
+                      <Route path="/video-proshno">
+                        <VideoCategories />
+                      </Route>
+                      <Route path="/videos/video-proshno/:vidId">
+                        <VideoCategoryMain />
+                      </Route>
+                      <Route path="/pdf-books">
+                        <PdfCategories />
+                      </Route>
+                      <Route path="/e-books/pdf-books/:pdfId">
+                        <PdfMain />
+                      </Route>
+                      <Route path="/nari-ongon">
+                        <NariCategories />
+                      </Route>
+                      <Route path="/proshnottor/nari-ongon/:nariId">
+                        <NariMain />
+                      </Route>
+                      <Route path="/nastikkobad">
+                        <AtheistCat />
+                      </Route>
+                      <Route path="/proshnottor/nastikkobad/:athId">
+                        <AtheistMain />
+                      </Route>
+                      <Route path="/blog">
+                        <BlogList />
+                      </Route>
+                      <Route path="/blog-post/:blogId">
+                        <BlogDetails />
+                      </Route>
+                      <Route path="/blogpost/bookmark">
+                        <Bookmarks />
+                      </Route>
+                      <Route path="/search/:search">
+                        <SearchResult />
+                      </Route>
 
-                    <Route path="/login">
-                      <Login />
-                    </Route>
+                      <Route path="/login">
+                        <Login />
+                      </Route>
 
-                    <PrivateRoute path="/admin">
-                      <Admin />
-                    </PrivateRoute>
-                    <PrivateRoute path="/create-post">
-                      <CreatePost />
-                    </PrivateRoute>
-                    <PrivateRoute path="/post-list">
-                      <PostList />
-                    </PrivateRoute>
-                    <PrivateRoute path="/create-video">
-                      <CreateVideo />
-                    </PrivateRoute>
-                    <PrivateRoute path="/video-list">
-                      <VideoList />
-                    </PrivateRoute>
-                    <PrivateRoute path="/create-pdf">
-                      <CreatePdf />
-                    </PrivateRoute>
-                    <PrivateRoute path="/pdf-list">
-                      <PdfList />
-                    </PrivateRoute>
-                    <PrivateRoute path="/user-question-list">
-                      <UserQues />
-                    </PrivateRoute>
-                    <PrivateRoute path="/reports">
-                      <Reports />
-                    </PrivateRoute>
+                      <PrivateRoute path="/admin">
+                        <Admin />
+                      </PrivateRoute>
+                      <PrivateRoute path="/create-post">
+                        <CreatePost />
+                      </PrivateRoute>
+                      <PrivateRoute path="/post-list">
+                        <PostList />
+                      </PrivateRoute>
+                      <PrivateRoute path="/create-video">
+                        <CreateVideo />
+                      </PrivateRoute>
+                      <PrivateRoute path="/video-list">
+                        <VideoList />
+                      </PrivateRoute>
+                      <PrivateRoute path="/create-pdf">
+                        <CreatePdf />
+                      </PrivateRoute>
+                      <PrivateRoute path="/pdf-list">
+                        <PdfList />
+                      </PrivateRoute>
+                      <PrivateRoute path="/user-question-list">
+                        <UserQues />
+                      </PrivateRoute>
+                      <PrivateRoute path="/reports">
+                        <Reports />
+                      </PrivateRoute>
+                      <PrivateRoute path="/moderators">
+                        <Moderators />
+                      </PrivateRoute>
 
-                    <ModeratorContext.Provider value={[isMod, setIsMod]}>
-                      <Route path="/moderate-login">
+                      <Route path="/moderator-login">
                         <ModeratorLogin />
                       </Route>
                       <ModRoute path="/moderator">
                         <ModerateMain />
                       </ModRoute>
-                    </ModeratorContext.Provider>
 
 
-                  </Layout>
-                </>
-            }
-          </Switch>
-        </Router>
+                    </Layout>
+                  </>
+              }
+            </Switch>
+          </Router>
+        </ModeratorContext.Provider>
       </AdminContext.Provider>
     </>
   )

@@ -4,12 +4,17 @@ import CustomMenu from './CustomMenu'
 import c from '../../../styles/header.module.css'
 import { categoryLink, menuLink } from '../../../fakedata/links'
 import { InputAdornment, TextField } from "@material-ui/core"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { AdminContext, ModeratorContext } from "../../../App"
 
 let width = window.innerWidth < 1230
 
 export default function Navbar() {
 
+    // eslint-disable-next-line
+    const [isAdmin, setIsAdmin] = useContext(AdminContext)
+    // eslint-disable-next-line
+    const [isMod, setIsMod] = useContext(ModeratorContext)
     const history = useHistory()
     const [input, setInput] = useState('')
 
@@ -32,6 +37,9 @@ export default function Navbar() {
                         <li><Link to="/nastikkobad">নাস্তিক্যবাদ</Link></li>
                         <li><Link to="/blog">ব্লগ</Link></li>
                         <li><Link to="/about-us">আমাদের সম্পর্কে</Link></li>
+                        {localStorage.getItem('admin_token') && <li><Link to="/admin">Admin</Link></li>}
+                        {localStorage.getItem('moderator_token') && <li><Link to="/moderator">Moderator</Link></li>}
+
                     </ul>
                 </div>
                 <form onSubmit={e => handleMobileSearch(e)}>

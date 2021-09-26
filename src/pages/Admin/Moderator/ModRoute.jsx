@@ -6,20 +6,18 @@ export default function ModRoute({ children, ...rest }) {
 
     // eslint-disable-next-line
     const [isMod, setIsMod] = useContext(ModeratorContext)
-    let email = localStorage.getItem('email')
-    let password = localStorage.getItem('password')
-    let fromContext = isMod.email && isMod.password
-    let fromlocal = email && password
+    let localToken = localStorage.getItem('moderator_token')
+    let contextToken = isMod.moderator_token !== ''
 
     return (
         <Route
             {...rest}
-            render={({ location }) => (fromContext || fromlocal) ? (
+            render={({ location }) => (contextToken || localToken) ? (
                 children
             ) :
                 (<Redirect
                     to={{
-                        pathname: "/moderate-login",
+                        pathname: "/moderator-login",
                         state: { from: location }
                     }}
                 />)

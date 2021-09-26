@@ -26,7 +26,7 @@ export default function Login() {
 
         if (input.email && input.password && input.code) {
 
-            fetch('/backend/api/v1/admin/login', {
+            fetch('http://localhost:5000/backend/api/v1/admin/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -36,20 +36,19 @@ export default function Login() {
                 .then(res => {
                     if (res.status !== 200) {
                         alert('Incorrect Credentials, Please try again.')
+                        return
                     } else {
-                        const { email, password, code } = input
-                        setIsAdmin({
-                            email,
-                            password,
-                            code
-                        })
-                        localStorage.setItem('email', email)
-                        localStorage.setItem('password', password)
-                        localStorage.setItem('code', code)
+                        return res.json()
+                    }
+                })
+                .then(data => {
+                    if (data.access_token !== '') {
+                        setIsAdmin({ token: data.access_token })
+                        localStorage.setItem('admin_token', data.access_token)
                         history.replace(from)
                     }
                 })
-                .catch(err => alert(err.message))
+                .catch(err => console.log(err.message))
 
         } else alert('Please fill all the field')
     }

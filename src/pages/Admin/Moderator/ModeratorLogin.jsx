@@ -25,7 +25,7 @@ export default function ModeratorLogin() {
 
         if (input.email && input.password) {
 
-            fetch('/backend/api/v1/moderator/login', {
+            fetch('http://localhost:5000/backend/api/v1/moderator/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -35,18 +35,20 @@ export default function ModeratorLogin() {
                 .then(res => {
                     if (res.status !== 200) {
                         alert('Incorrect Credentials, Please try again.')
+                        return
                     } else {
-                        const { email, password } = input
-                        setIsMod({
-                            email,
-                            password,
-                        })
-                        localStorage.setItem('email', email)
-                        localStorage.setItem('password', password)
+                        return res.json()
+                    }
+                })
+                .then(data => {
+                    if (data.access_token !== '') {
+                        setIsMod({ moderator_token: data.access_token })
+                        localStorage.setItem('moderator_token', data.access_token)
+                        localStorage.setItem('hash', data.hash)
                         history.replace(from)
                     }
                 })
-                .catch(err => alert(err.message))
+                .catch(err => console.log(err.message))
 
         } else alert('Please fill all the field')
     }

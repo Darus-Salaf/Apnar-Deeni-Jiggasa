@@ -13,6 +13,7 @@ export default function AdminSide() {
                 <li><Link to="/create-pdf">পিডিএফ ক্রিয়েট করুন</Link></li>
                 <li><Link to="/pdf-list">সব পিডিএফ লিস্ট</Link></li>
                 <li><Link to="/user-question-list">ইউজারের প্রশ্ন লিস্ট</Link></li>
+                <li><Link to="/moderators">মডারেটর</Link></li>
                 <li><Link to="/reports">Reports</Link></li>
             </ul>
         </div>
