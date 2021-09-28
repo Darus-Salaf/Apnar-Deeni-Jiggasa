@@ -86,6 +86,13 @@
     .mobileHolder {
         display: inline !important;
     }
+    .mobileBtn2>button {
+        background-color: #163c3f;
+        color: #eee;
+        font-weight: 600;
+        width: 90%;
+        border-radius: 20px;
+    }
     .mobileBtn>button {
         background-color: darkcyan;
         color: #eee;
