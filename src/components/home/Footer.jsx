@@ -32,14 +32,13 @@ export default function Footer() {
 
                                 <div className="row">
                                     <div className="col-6 footerpl"><ul>
-                                        <li><a href="/likhito-proshno">লিখিত প্রশ্নোত্তর</a></li>
-                                        <li><a href="/video-proshno">ভিডিও প্রশ্নোত্তর</a></li>
-                                        <li><a href="/nastikkobad">নাস্তিক্যবাদের জবাব</a></li>
+                                        <li><Link to="/likhito-proshno">লিখিত প্রশ্নোত্তর</Link></li>
+                                        <li><Link to="/video-proshno">ভিডিও প্রশ্নোত্তর</Link></li>
+                                        <li><Link to="/nastikkobad">নাস্তিক্যবাদের জবাব</Link></li>
                                     </ul></div>
                                     <div className="col-6"><ul>
-                                        <li><a href="/Dua-Zikir">দোয়া ও যিকির</a></li>
-                                        <li><a href="/nari-ongon">মহিলা অঙ্গন</a></li>
-                                        <li><a href="/pdf-books">পিডিএফ কিতাব</a></li>
+                                        <li><Link to="/dua-zikr">দোয়া ও যিকির</Link></li>
+                                        <li><Link to="/nari-ongon">মহিলা অঙ্গন</Link></li>
                                     </ul></div>
                                 </div>
                             </div>

@@ -21,7 +21,7 @@ export default function CreateVideo() {
     const handlePost = () => {
         if (input.cat && input.link && input.sheikh && input.topic) {
 
-            fetch('/backend/api/v1/create/video', {
+            fetch('http://apnardeenijiggasa.com/backend/api/v1/create/video', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -29,7 +29,17 @@ export default function CreateVideo() {
                 body: JSON.stringify(input)
             })
                 .then(res => res.json())
-                .then(data => data.insertedId ? alert('Post created successfully') : alert('Post creation failed !'))
+                .then(data => {
+                    if (data.insertedId) {
+                        alert('Post created successfully')
+                        setInput({
+                            cat: '',
+                            link: '',
+                            sheikh: '',
+                            topic: ''
+                        })
+                    } else alert('Post creation failed !')
+                })
                 .catch(err => alert(err.message))
 
         } else alert('Please fill all the field')

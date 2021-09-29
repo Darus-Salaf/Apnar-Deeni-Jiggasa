@@ -29,7 +29,17 @@ export default function CreatePdf() {
                 body: JSON.stringify(input)
             })
                 .then(res => res.json())
-                .then(data => data.insertedId ? alert('PDF created successfully') : alert('PDF creation failed !'))
+                .then(data => {
+                    if (data.insertedId) {
+                        alert('PDF created successfully')
+                        setInput({
+                            cat: '',
+                            link: '',
+                            name: '',
+                            description: ''
+                        })
+                    } else alert('PDF creation failed !')
+                })
                 .catch(err => alert(err.message))
 
         } else alert('Please fill all the field')

@@ -15,6 +15,18 @@ main {
 max-width: 1200px;
 margin: 0 auto;
 }
+@font-face {
+    font-family: arabic;
+    src: local("KFGQPC HAFS Uthmanic Script Regular. Version 0.17"),url(https://cdn.qurancdn.com/assets/quran_fonts/uthmanic_hafs/UthmanicHafs1-Ver17-d3c10a141267f9807051fb2ca4eaf4411e88dcdb78920c10cdbe1a2c4ffa59a2.woff2),url(https://cdn.qurancdn.com/assets/quran_fonts/uthmanic_hafs/UthmanicHafs1-Ver17-feca3fe4a85b59a718dec776a00acb48e4168dfaf2deda5ea3cb9bf68e3ca6bc.ttf) format("truetype");
+}
+
+.arabic, #fontarby {
+    font-family: arabic !important;
+}
+#fontarby {
+    font-size: 2rem;
+}
+
 .bangla {
     font-family: 'Hind Siliguri', sans-serif !important;
 }

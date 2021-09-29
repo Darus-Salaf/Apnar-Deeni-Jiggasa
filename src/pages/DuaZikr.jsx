@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react'
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import Radio from '@material-ui/core/Radio'
 import Slider from '@material-ui/core/Slider'
-import RadioGroup from '@material-ui/core/RadioGroup'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
 import { useState } from 'react'
 import c from '../styles/dua.module.css'
 import Spinner from '../components/Spinner';
 import DuaFazilat from '../components/DuaFazilat';
-import { ArabicTypo } from '../styles/muicustoms';
 import DuaCategory from '../components/DuaCategory';
 
 export default function DuaZikr() {
@@ -20,19 +16,18 @@ export default function DuaZikr() {
     const [selected, setSelected] = useState([])
     const [input, setInput] = useState('')
     const [background, setBackground] = useState(null)
-    const [fontValue, setFontValue] = useState('1')
     const [arabicSize, setArabicSize] = useState(30)
     const [banglaSize, setBanglaSize] = useState(16)
     const [open, setOpen] = useState(false)
     const [open2, setOpen2] = useState(false)
 
     useEffect(() => {
-        fetch('http://apnardeenijiggasa.com/backend/api/v1/duaname')
+        fetch('/backend/api/v1/duaname')
             .then(res => res.json())
             .then(data => setName(data[0].duaname))
             .catch(err => console.log(err.message))
 
-        fetch('http://apnardeenijiggasa.com/backend/api/v1/dua')
+        fetch('/backend/api/v1/dua')
             .then(res => res.json())
             .then(data => setDua(data[0].dua))
             .catch(err => console.log(err.message))
@@ -127,14 +122,6 @@ export default function DuaZikr() {
                             >
                                 <div className={c.right} style={{ width: '300px' }}>
                                     <h4 className="text-center pt-3 text-light">ফন্ট সেটিংস</h4>
-                                    <p className="pt-2 mb-0 px-2 text-light"><strong>ফন্ট স্টাইল</strong></p>
-                                    <div className="px-2 text-light">
-                                        <RadioGroup aria-label="gender" name="fonts" value={fontValue} onChange={e => setFontValue(e.target.value)}>
-                                            <FormControlLabel value="1" control={<Radio style={{ color: '#eee' }} />} label="Latef" />
-                                            <FormControlLabel value="2" control={<Radio style={{ color: '#eee' }} />} label="Amiri" />
-                                            <FormControlLabel value="3" control={<Radio style={{ color: '#eee' }} />} label="Tajawal" />
-                                        </RadioGroup>
-                                    </div> <hr style={{ color: '#eee', height: '1px' }} />
                                     <div className="px-2">
                                         <p className="pt-2 mb-0 text-light"><strong>ফন্ট সাইজ (আরবী)</strong></p>
                                         <Slider style={{ color: '#eee' }} value={arabicSize} onChange={handleArabic} aria-labelledby="font-size-slider" />
@@ -161,7 +148,7 @@ export default function DuaZikr() {
                                     title.map(i => i[1])
                                 }
                             </p>
-                            <p className={c.arabic} style={{ fontSize: `${arabicSize}px` }}><ArabicTypo font={fontValue}>{item[6]}</ArabicTypo></p>
+                            <p className={c.duaarabic} style={{ fontSize: `${arabicSize}px` }}><p className="arabic">{item[6]}</p></p>
                             <hr style={{ color: '#eee', height: '1px' }} />
                             <div className={c.transliteration}>
                                 <p style={{ fontSize: `${banglaSize}px` }}><strong>উচ্চারণঃ</strong></p>
@@ -184,14 +171,6 @@ export default function DuaZikr() {
             <div className={`col-md-2 ${c.desktopcat}`}>
                 <div className={c.right}>
                     <h4 className="text-center pt-3 text-light">ফন্ট সেটিংস</h4>
-                    <p className="pt-2 mb-0 px-2 text-light"><strong>ফন্ট স্টাইল</strong></p>
-                    <div className="px-2 text-light">
-                        <RadioGroup aria-label="gender" name="fonts" value={fontValue} onChange={e => setFontValue(e.target.value)}>
-                            <FormControlLabel value="1" control={<Radio style={{ color: '#eee' }} />} label="Latef" />
-                            <FormControlLabel value="2" control={<Radio style={{ color: '#eee' }} />} label="Amiri" />
-                            <FormControlLabel value="3" control={<Radio style={{ color: '#eee' }} />} label="Tajawal" />
-                        </RadioGroup>
-                    </div> <hr style={{ color: '#eee', height: '1px' }} />
                     <div className="px-2">
                         <p className="pt-2 mb-0 text-light"><strong>ফন্ট সাইজ (আরবী)</strong></p>
                         <Slider style={{ color: '#eee' }} value={arabicSize} onChange={handleArabic} aria-labelledby="font-size-slider" />

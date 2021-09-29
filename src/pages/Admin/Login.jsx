@@ -26,7 +26,7 @@ export default function Login() {
 
         if (input.email && input.password && input.code) {
 
-            fetch('http://localhost:5000/backend/api/v1/admin/login', {
+            fetch('/backend/api/v1/admin/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
