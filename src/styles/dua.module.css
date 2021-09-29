@@ -39,6 +39,17 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+  .cat {
+      overflow: scroll;
+  }
+.cat::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .cat {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 .searchbox {
     background-color: #26676c;
     padding: 15px;

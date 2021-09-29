@@ -8,55 +8,39 @@ import { useState } from 'react'
 import c from '../styles/dua.module.css'
 import { AccordionHeader, AccordionText } from '../styles/muicustoms';
 
-export default function DuaCategory({ handleDuaNumber }) {
+export default function DuaCategory({ handleDuaNumber, dua }) {
 
     const [expanded, setExpanded] = React.useState(false)
+    const [open, setOpen] = useState(false)
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     }
-    const [open, setOpen] = useState(false)
-    const cat = [
-        'sleep',
-        'cloth',
-        'bathroom',
-        'udhu',
-        'home',
-        'masjid',
-        'adhan',
-        'salat',
-        'safety',
-        'after-salat',
-        'others',
-        'every-day',
-        'spouse',
-        'death',
-        'siyam',
-        'eating',
-        'safar',
-        'hajj',
-        'quran'
-    ]
+    const handleClick = id => {
+        handleDuaNumber(id)
+        setOpen(false)
+    }
+
     const cats = [
-        'ঘুমের যিকর',
-        'কাপড় পরিধানের যিকর',
-        'বাথরুমের যিকর',
-        'উযুর যিকর',
-        'বাসায় আসা-যাওয়ার যিকর',
-        'মাসজিদের যিকর',
-        'আযানের যিকর',
-        'সালাতের যিকর',
-        'নিরাপত্তাবিষয়ক যিকর',
-        'সালাত শেষে যিকর',
-        'অন্যান্য যিকর',
-        'প্রত্যাহিক যিকর',
-        'দাম্পত্যবিষয়ক যিকর',
-        'মৃত ও কবর সংশ্লিষ্ট যিকর',
-        'সিয়াম',
-        'খাদ্যগ্রহন সংশ্লিষ্ট যিকর',
-        'সফর সংশ্লিষ্ট যিকর',
-        'হজ্জ এর যিকর',
-        'কুরআনের দুআ'
+        { name: 'ঘুমের যিকর', slug: 'sleep' },
+        { name: 'কাপড় পরিধানের যিকর', slug: 'cloth' },
+        { name: 'বাথরুমের যিকর', slug: 'bathroom' },
+        { name: 'উযুর যিকর', slug: 'udhu' },
+        { name: 'বাসায় আসা-যাওয়ার যিকর', slug: 'home' },
+        { name: 'মাসজিদের যিকর', slug: 'masjid' },
+        { name: 'আযানের যিকর', slug: 'adhan' },
+        { name: 'সালাতের যিকর', slug: 'salat' },
+        { name: 'নিরাপত্তাবিষয়ক যিকর', slug: 'safety' },
+        { name: 'সালাত শেষে যিকর', slug: 'after-salat' },
+        { name: 'অন্যান্য যিকর', slug: 'others' },
+        { name: 'প্রত্যাহিক যিকর', slug: 'every-day' },
+        { name: 'দাম্পত্যবিষয়ক যিকর', slug: 'spouse' },
+        { name: 'মৃত ও কবর সংশ্লিষ্ট যিকর', slug: 'death' },
+        { name: 'সিয়াম', slug: 'siyam' },
+        { name: 'খাদ্যগ্রহন সংশ্লিষ্ট যিকর', slug: 'eating' },
+        { name: 'সফর সংশ্লিষ্ট যিকর', slug: 'safar' },
+        { name: 'হজ্জ এর যিকর', slug: 'hajj' },
+        { name: 'কুরআনের দুআ', slug: 'quran' }
     ]
 
     return (
@@ -70,24 +54,31 @@ export default function DuaCategory({ handleDuaNumber }) {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <div>
+                <div className={c.cat} style={{ minWidth: '30vw', border: '5px solid #eee' }}>
                     {
-                        cats.map((item, key) => <Accordion expanded={expanded === `panel${key + 1}`} onChange={handleChange(`panel${key + 1}`)}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1bh-content"
-                                id="panel1bh-header"
-                            >
-                                <AccordionHeader>{item}</AccordionHeader>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <AccordionText>
-                                    {item} <br />
-                                    {item} <br />
-                                    {item} <br />
-                                </AccordionText>
-                            </AccordionDetails>
-                        </Accordion>)
+                        cats.map((item, key) => {
+                            const selected = dua.filter(i => item.slug === i[2])
+
+                            return <Accordion expanded={expanded === `panel${key + 1}`} onChange={handleChange(`panel${key + 1}`)}>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon style={{ color: '#eee' }} />}
+                                    aria-controls="panel1bh-content"
+                                    id="panel1bh-header"
+                                >
+                                    <AccordionHeader>{item.name}</AccordionHeader>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <AccordionText>
+                                        {
+                                            selected.map((i, n) => <>
+                                                <Button onClick={() => handleClick(i[0])} style={{ color: '#eee', fontWeight: '300' }} key={n}>{i[1]}</Button> <hr style={{ color: '#eee', height: '2px', margin: '0' }} /></>
+                                            )
+                                        }
+                                    </AccordionText>
+
+                                </AccordionDetails>
+                            </Accordion>
+                        })
                     }
                 </div>
             </Dialog>

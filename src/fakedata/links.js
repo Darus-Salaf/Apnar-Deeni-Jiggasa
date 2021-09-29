@@ -4,10 +4,6 @@ let menuLink = [
         link: '/'
     },
     {
-        name: 'পিডিএফ কিতাব',
-        link: '/pdf-books'
-    },
-    {
         name: "দু'আ ও যিকর",
         link: '/dua-zikr'
     },

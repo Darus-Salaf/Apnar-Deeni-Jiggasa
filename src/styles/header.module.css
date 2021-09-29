@@ -33,7 +33,7 @@
     transition: all .2s ease-in-out;
     color: #eee;
     background-color: #63787a;
-    padding: 5px 20px;
+    padding: 5px 15px;
     border-radius: 20px;
 }
 .menuItem>ul>li>a:hover {
@@ -95,10 +95,10 @@
 }
 .menuList:last-child {border-bottom: 0 !important;}
 
-@media (max-width: 1023px) {
+@media (max-width: 1200px) {
     .navbar {display: none !important;}
 }
-@media (min-width: 1024px) {
+@media (min-width: 1201px) {
     .mobileNav {display: none !important;}
 }
 @media (max-width: 767px) {

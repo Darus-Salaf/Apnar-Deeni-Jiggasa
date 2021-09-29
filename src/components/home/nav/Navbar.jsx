@@ -32,8 +32,10 @@ export default function Navbar() {
                 <div className={c.menuItem}>
                     <ul>
                         <li><Link to="/">মূলপাতা</Link></li>
-                        <li><Link to="/pdf-books">পিডিএফ বই</Link></li>
-                        <li><Link to="/dua-zikr">দু'আ ও যিকর</Link></li>
+                        <li><Link to="/pdf-books">লিখিত</Link></li>
+                        <li><Link to="/pdf-books">ভিডিও</Link></li>
+                        <li><Link to="/pdf-books">নারী অঙ্গন</Link></li>
+                        <li><Link to="/dua-zikr">দু'আ যিকর</Link></li>
                         <li><Link to="/nastikkobad">নাস্তিক্যবাদ</Link></li>
                         <li><Link to="/blog">ব্লগ</Link></li>
                         <li><Link to="/about-us">আমাদের সম্পর্কে</Link></li>

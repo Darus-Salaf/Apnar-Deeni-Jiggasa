@@ -66,7 +66,7 @@ export default function DuaZikr() {
                         <h3 className="text-center">দোয়া খুঁজুন</h3>
                         <input onChange={e => setInput(e.target.value)} type="text" placeholder="দু'আর নাম সার্চ করুন" />
                         <div className="my-2">
-                            <DuaCategory handleDuaNumber={handleDuaNumber} />
+                            <DuaCategory dua={name} handleDuaNumber={handleDuaNumber} />
                         </div>
                     </div>
                     <div className={c.duabox}>
