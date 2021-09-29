@@ -1,9 +1,12 @@
-import { sheikhs } from '../../fakedata/sheikh'
+import useFetch from '../../pages/Admin/useFetch'
 import c from '../../styles/qa.module.css'
-import c2 from '../../styles/category.module.css'
 import { Link } from 'react-router-dom'
 
 export default function Videoqa() {
+
+    const data = useFetch('http://apnardeenijiggasa.com/backend/api/v1/videos')
+    console.log(data)
+
     return (
         <div className="my-5">
 
@@ -12,11 +15,17 @@ export default function Videoqa() {
 
             <div className={`${c.bg} row p-4 mt-4`}>
                 {
-                    sheikhs.slice(0, 4).map((sheikh, i) => (
+                    data.reverse().slice(0, 4).map((video, i) => (
                         <div className="col-6" key={i}>
                             <div className="p-2">
-                                <a href="/"><img width="100%" height="150px" style={{ borderRadius: '5px' }} src={sheikh.img} alt="sheikh" /></a>
-                                <div className="mt-3 mb-4 text-center"><a className={c2.capsul} href="/">{sheikh.name}</a></div>
+                                <div className="videoMain2">
+                                    <iframe width="100%"
+                                        src={video.link}
+                                        title={video.topic}
+                                        frameborder="0"
+                                    />
+                                </div>
+                                <div className="mt-3 mb-4"><Link style={{borderLeft: '5px solid #eee', paddingLeft: '5px'}} to={`/videos/video-proshno/${video.cat}`}>{video.topic}</Link></div>
                             </div>
                         </div>
                     ))
