@@ -8,7 +8,7 @@ import { useState } from 'react'
 import c from '../styles/dua.module.css'
 import { AccordionHeader, AccordionText } from '../styles/muicustoms';
 
-export default function DuaCategory({ handleDuaNumber, dua }) {
+export default function DuaCategory({ handleDuaNumber, dua, mobile }) {
 
     const [expanded, setExpanded] = React.useState(false)
     const [open, setOpen] = useState(false)
@@ -44,8 +44,8 @@ export default function DuaCategory({ handleDuaNumber, dua }) {
     ]
 
     return (
-        <div className={c.mobileBtn2}>
-            <Button style={{ borderRight: '2px solid #163c3f' }} onClick={() => setOpen(true)}>
+        <div className={mobile ? c.mobileBtn3 : c.mobileBtn2}>
+            <Button onClick={() => setOpen(true)}>
                 দু'আর ক্যাটাগরি
             </Button>
             <Dialog
@@ -75,7 +75,6 @@ export default function DuaCategory({ handleDuaNumber, dua }) {
                                             )
                                         }
                                     </AccordionText>
-
                                 </AccordionDetails>
                             </Accordion>
                         })

@@ -104,6 +104,12 @@
         width: 90%;
         border-radius: 20px;
     }
+    .mobileBtn3>button {
+        background-color: #163c3f;
+        color: #eee;
+        font-weight: 600;
+        width: 100%;
+    }
     .mobileBtn>button {
         background-color: darkcyan;
         color: #eee;
