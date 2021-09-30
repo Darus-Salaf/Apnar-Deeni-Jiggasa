@@ -25,7 +25,7 @@ export default function ModeratorLogin() {
 
         if (input.email && input.password) {
 
-            fetch('http://localhost:5000/backend/api/v1/moderator/login', {
+            fetch('/backend/api/v1/moderator/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,6 +46,7 @@ export default function ModeratorLogin() {
                         localStorage.setItem('moderator_token', data.access_token)
                         localStorage.setItem('hash', data.hash)
                         history.replace(from)
+                        window.location.reload()
                     }
                 })
                 .catch(err => console.log(err.message))

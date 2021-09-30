@@ -63,7 +63,7 @@ export default function VideoDialog(props) {
                     <div className="videoMain">
                         <iframe width="100%"
                             src={props.link}
-                            title="YouTube video player"
+                            title={props.topic}
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen

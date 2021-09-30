@@ -43,7 +43,7 @@ const useStyles = makeStyles({
 export default function Moderators() {
 
     const classes = useStyles();
-    let data = useFetch('http://localhost:5000/backend/api/v1/moderators')
+    let data = useFetch('/backend/api/v1/moderators')
 
     console.log(data)
 

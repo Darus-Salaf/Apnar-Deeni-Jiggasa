@@ -46,6 +46,7 @@ export default function Login() {
                         setIsAdmin({ token: data.access_token })
                         localStorage.setItem('admin_token', data.access_token)
                         history.replace(from)
+                        window.location.reload()
                     }
                 })
                 .catch(err => console.log(err.message))

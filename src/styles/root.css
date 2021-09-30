@@ -135,7 +135,7 @@ img {
     position: fixed;
 }
 .videoMain>iframe {
-    height: 700px;
+    height: 80vh;
 }
 .videoMain2>iframe {
     height: 100%;

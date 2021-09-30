@@ -1,6 +1,24 @@
-import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Footer() {
+
+    const isSignedIn = localStorage.getItem('admin_token') || localStorage.getItem('moderator_token')
+    const history = useHistory()
+
+    const handleLogout = () => {
+
+        if (isSignedIn === localStorage.getItem('admin_token')) {
+            localStorage.setItem('admin_token', '')
+            history.push('/')
+            window.location.reload()
+        } else if (isSignedIn === localStorage.getItem('moderator_token')) {
+            localStorage.setItem('moderator_token', '')
+            localStorage.setItem('hash', '')
+            history.push('/')
+            window.location.reload()
+        }
+    }
 
     return (
         <footer>
@@ -20,7 +38,8 @@ export default function Footer() {
                                         <button className="btn" type="button">Search</button>
                                     </div>
                                     <p>
-                                        <Link to="/admin">Login</Link>
+                                        {isSignedIn && <Button variant="outlined" style={{color: '#eee', borderColor: '#eee'}} onClick={handleLogout}>Logout</Button>}
+                                        {!isSignedIn && <Link to="/admin">Login</Link>}
                                     </p>
                                 </div>
                             </div>

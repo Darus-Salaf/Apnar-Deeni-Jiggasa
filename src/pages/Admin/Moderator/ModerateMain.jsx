@@ -27,7 +27,7 @@ export default function ModerateMain() {
     const decodedToken = jwt.verify(token, hash)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/backend/api/v1/moderator/${decodedToken.email}`)
+        fetch(`/backend/api/v1/moderator/${decodedToken.email}`)
             .then(res => res.json())
             .then(data => setModData(data))
             .catch(err => console.log(err.message))
@@ -40,7 +40,7 @@ export default function ModerateMain() {
                 ...input,
                 creator: decodedToken.email
             }
-            fetch('http://localhost:5000/backend/api/v1/create/post', {
+            fetch('/backend/api/v1/create/post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ export default function ModerateMain() {
                     if (data.insertedId) {
 
                         // Increase a count for the post of moderator
-                        fetch(`http://localhost:5000/backend/api/v1/moderator/${decodedToken.email}/post/${input.topic}`)
+                        fetch(`/backend/api/v1/moderator/${decodedToken.email}/post/${input.topic}`)
                             .then(res => res.json())
                             .then(data => console.log(data))
                             .catch(err => console.log(err.message))
