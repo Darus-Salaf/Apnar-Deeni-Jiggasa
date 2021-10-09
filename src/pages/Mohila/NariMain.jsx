@@ -6,7 +6,7 @@ import CategoryMain from "../CategoryMain"
 export default function NariMain() {
 
     const { nariId } = useParams()
-    let data = useFetch(`/backend/api/v1/posts/nari-ongon/${nariId}`, nariId)
+    let data = useFetch(`/api/jiggasa/posts/nari-ongon/${nariId}`, nariId)
 
     return <CategoryMain headings={'প্রশ্নোত্তরসমূহ - নারী অঙ্গন'} data={data} />
 }

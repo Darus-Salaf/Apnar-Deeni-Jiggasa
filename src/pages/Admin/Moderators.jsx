@@ -43,7 +43,7 @@ const useStyles = makeStyles({
 export default function Moderators() {
 
     const classes = useStyles();
-    let data = useFetch('/backend/api/v1/moderators')
+    let data = useFetch('/api/jiggasa/moderators')
 
     console.log(data)
 

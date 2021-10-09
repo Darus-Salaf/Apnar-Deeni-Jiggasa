@@ -25,7 +25,7 @@ export default function ModeratorLogin() {
 
         if (input.email && input.password) {
 
-            fetch('/backend/api/v1/moderator/login', {
+            fetch('/api/jiggasa/moderator/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

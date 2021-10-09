@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function UserQues() {
 
-    const data = useFetch('/backend/api/v1/questions')
+    const data = useFetch('/api/jiggasa/questions')
 
     return <div className="row">
         <AdminSide />

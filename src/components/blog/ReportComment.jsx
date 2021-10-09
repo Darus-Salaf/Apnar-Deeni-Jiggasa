@@ -16,7 +16,7 @@ function SimpleDialog(props) {
     }
 
     const handleReport = () => {
-        fetch(`/backend/api/v1/report/comment`, {
+        fetch(`/api/jiggasa/report/comment`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

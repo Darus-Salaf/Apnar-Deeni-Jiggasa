@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function Videoqa() {
 
-    const data = useFetch('/backend/api/v1/videos')
+    const data = useFetch('/api/jiggasa/videos')
     console.log(data)
 
     return (

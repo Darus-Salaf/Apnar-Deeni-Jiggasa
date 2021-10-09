@@ -31,7 +31,7 @@ export default function Answer({ children, question, id, status }) {
 
     const handleUpdate = () => {
         if (text.answer) {
-            fetch(`/backend/api/v1/update/question`, {
+            fetch(`/api/jiggasa/update/question`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
