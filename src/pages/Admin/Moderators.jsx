@@ -8,6 +8,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
+
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -43,7 +46,18 @@ const useStyles = makeStyles({
 export default function Moderators() {
 
     const classes = useStyles();
-    let data = useFetch('/api/jiggasa/moderators')
+    let data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/moderators')
+
+    const handleReset = id => {
+        fetch(`http://localhost:5000/api/jiggasa/moderators/remove/post/${id}`)
+            .then(res => {
+                if (res.status === 200) {
+                    alert('Successfully Reset this moderator')
+                    window.location.reload()
+                } else alert('Failed to Reset this moderator, Please try again later')
+            })
+            .catch(err => alert(err.message))
+    }
 
     return <div className="row">
         <AdminSide />
@@ -54,9 +68,10 @@ export default function Moderators() {
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
                             <TableRow>
-                                 <StyledTableCell StyledTableCell> নাম</StyledTableCell>
-                                 <StyledTableCell StyledTableCell> ইমেইল</StyledTableCell>
-                                 <StyledTableCell StyledTableCell> পোস্টসংখ্যা</StyledTableCell>
+                                <StyledTableCell StyledTableCell> নাম</StyledTableCell>
+                                <StyledTableCell StyledTableCell> ইমেইল</StyledTableCell>
+                                <StyledTableCell StyledTableCell> পোস্টসংখ্যা</StyledTableCell>
+                                <StyledTableCell StyledTableCell> পোস্ট রিসেট করুন</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         {
@@ -64,6 +79,7 @@ export default function Moderators() {
                                 <StyledTableCell>{item.name}</StyledTableCell>
                                 <StyledTableCell>{item.email}</StyledTableCell>
                                 <StyledTableCell>{item.post.length}</StyledTableCell>
+                                <StyledTableCell><Button onClick={() => handleReset(item._id)} variant="contained" color="secondary"><DeleteForeverIcon /> রিসেট</Button></StyledTableCell>
                             </StyledTableRow>)
                         }
                     </Table>

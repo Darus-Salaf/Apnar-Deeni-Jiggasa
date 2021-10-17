@@ -31,7 +31,7 @@ export default function Answer({ id }) {
 
     const handleUpdate = () => {
         if (text.comment) {
-            fetch(`/api/jiggasa/comment`, {
+            fetch(`https://apnardeenijiggasa.com/api/jiggasa/comment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

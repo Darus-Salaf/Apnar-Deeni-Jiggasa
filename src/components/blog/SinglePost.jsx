@@ -12,7 +12,7 @@ const SinglePost = ({ id }) => {
 
     const history = useHistory()
     let width = window.innerWidth < 500
-    let data = useFetch(`/api/jiggasa/questions/per/${id}`)
+    let data = useFetch(`https://apnardeenijiggasa.com/api/jiggasa/questions/per/${id}`)
     let time = moment(data[0]?.date)
 
     const handleUnSave = id => {

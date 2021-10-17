@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function VideoList() {
 
-    const data = useFetch('/api/jiggasa/videos')
+    const data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/videos')
 
     return <div className="row">
         <AdminSide />

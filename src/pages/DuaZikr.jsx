@@ -23,12 +23,12 @@ export default function DuaZikr() {
     const [open2, setOpen2] = useState(false)
 
     useEffect(() => {
-        fetch('/api/jiggasa/duaname')
+        fetch('https://apnardeenijiggasa.com/api/jiggasa/duaname')
             .then(res => res.json())
             .then(data => setName(data[0].duaname))
             .catch(err => console.log(err.message))
 
-        fetch('/api/jiggasa/dua')
+        fetch('https://apnardeenijiggasa.com/api/jiggasa/dua')
             .then(res => res.json())
             .then(data => setDua(data[0].dua))
             .catch(err => console.log(err.message))

@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function UserQues() {
 
-    const data = useFetch('/api/jiggasa/questions')
+    const data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/questions')
 
     return <div className="row">
         <AdminSide />
