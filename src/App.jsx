@@ -11,8 +11,6 @@ import AtheistMain from './pages/Atheist/AtheistMain'
 import Home from "./pages/Home"
 import NariCategories from './pages/Mohila/NariCategories'
 import NariMain from './pages/Mohila/NariMain'
-import PdfCategories from "./pages/PDF/PdfCategories"
-import PdfMain from './pages/PDF/PdfMain'
 import VideoCategories from './pages/Videos/VideoCategories'
 import WrittenCategories from './pages/Written/WrittenCategories'
 import WrittenMain from './pages/Written/WrittenMain'
@@ -22,8 +20,6 @@ import PostList from './pages/Admin/PostList'
 import CreateVideo from './pages/Admin/CreateVideo'
 import VideoList from './pages/Admin/VideoList'
 import UserQues from './pages/Admin/UserQues'
-import CreatePdf from './pages/Admin/CreatePdf'
-import PdfList from './pages/Admin/PdfList'
 import Login from './pages/Admin/Login'
 import PrivateRoute from './pages/Admin/PrivateRoute'
 import VideoCategoryMain from './pages/Videos/VideoCategoryMain'
@@ -90,12 +86,6 @@ export default function App() {
                       <Route path="/videos/video-proshno/:vidId">
                         <VideoCategoryMain />
                       </Route>
-                      <Route path="/pdf-books">
-                        <PdfCategories />
-                      </Route>
-                      <Route path="/e-books/pdf-books/:pdfId">
-                        <PdfMain />
-                      </Route>
                       <Route path="/nari-ongon">
                         <NariCategories />
                       </Route>
@@ -140,12 +130,6 @@ export default function App() {
                       <PrivateRoute path="/video-list">
                         <VideoList />
                       </PrivateRoute>
-                      <PrivateRoute path="/create-pdf">
-                        <CreatePdf />
-                      </PrivateRoute>
-                      <PrivateRoute path="/pdf-list">
-                        <PdfList />
-                      </PrivateRoute>
                       <PrivateRoute path="/user-question-list">
                         <UserQues />
                       </PrivateRoute>
@@ -162,7 +146,6 @@ export default function App() {
                       <ModRoute path="/moderator">
                         <ModerateMain />
                       </ModRoute>
-
 
                     </Layout>
                   </>

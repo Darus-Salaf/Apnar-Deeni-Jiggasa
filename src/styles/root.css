@@ -10,6 +10,8 @@
 }
 body {
     background-color: #305557;
+    overflow-y: scroll;
+    scrollbar-width: thin;
 }
 main {
 max-width: 1200px;
@@ -19,6 +21,23 @@ margin: 0 auto;
     font-family: arabic;
     src: local("KFGQPC HAFS Uthmanic Script Regular. Version 0.17"),url(https://cdn.qurancdn.com/assets/quran_fonts/uthmanic_hafs/UthmanicHafs1-Ver17-d3c10a141267f9807051fb2ca4eaf4411e88dcdb78920c10cdbe1a2c4ffa59a2.woff2),url(https://cdn.qurancdn.com/assets/quran_fonts/uthmanic_hafs/UthmanicHafs1-Ver17-feca3fe4a85b59a718dec776a00acb48e4168dfaf2deda5ea3cb9bf68e3ca6bc.ttf) format("truetype");
 }
+
+body::-webkit-scrollbar {
+    width: 10px;
+  }
+body::-webkit-scrollbar-track {
+    box-shadow: inset 4px 4px 11px 0px grey;
+    border-radius: 10px;
+  }
+body::-webkit-scrollbar-thumb {
+    background: #163c3f;
+    border-radius: 10px;
+    height: 40px;
+  }
+  
+  body::-webkit-scrollbar-thumb:hover {
+    background: #092a2c; 
+  }
 
 .arabic, #fontarby {
     font-family: arabic !important;
@@ -71,6 +90,9 @@ footer .footerInput>button {
 }
 footer .footerpl {
     padding-left: 3rem;
+}
+footer .footerpl>p {
+    margin-bottom: 0.5rem;
 }
 ul {
     padding-left: 0;
@@ -212,4 +234,8 @@ Material UI Customization by Rabius Sunny
 }
 .MuiPaper-root {
     background-color: #26676c !important;
+}
+
+.MuiAccordion-root.Mui-expanded {
+    margin: 0 !important;
 }

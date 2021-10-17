@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
 import Slider from '@material-ui/core/Slider'
 import { useState } from 'react'
 import c from '../styles/dua.module.css'
-import Spinner from '../components/Spinner';
-import DuaFazilat from '../components/DuaFazilat';
-import DuaCategory from '../components/DuaCategory';
+import Spinner from '../components/Spinner'
+import DuaFazilat from '../components/DuaFazilat'
+import DuaCategory from '../components/DuaCategory'
+import DuaCategoryDialog from '../components/DuaCategoryDialog'
 
 export default function DuaZikr() {
 
@@ -60,9 +61,6 @@ export default function DuaZikr() {
                     <div className={c.searchbox}>
                         <h3 className="text-center">দোয়া খুঁজুন</h3>
                         <input onChange={e => setInput(e.target.value)} type="text" placeholder="দু'আর নাম সার্চ করুন" />
-                        <div className="my-2">
-                            <DuaCategory mobile={false} dua={name} handleDuaNumber={handleDuaNumber} />
-                        </div>
                     </div>
                     <div className={c.duabox}>
                         <h2 className="text-center text-light">দু'আসমূহ</h2>
@@ -81,7 +79,7 @@ export default function DuaZikr() {
                 </div>
             </div>
 
-            <div className={width ? "col-12" : "col-md-7"}>
+            <div className={width ? "col-12" : "col-md-6"}>
                 <div className={c.dua}>
 
                     <div className={c.mobileHolder}>
@@ -132,7 +130,7 @@ export default function DuaZikr() {
                             </Dialog>
                         </span>
                         <div className="w-100 mx-auto text-center">
-                            <DuaCategory mobile={true} dua={name} handleDuaNumber={handleDuaNumber} />
+                            <DuaCategoryDialog mobile={true} dua={name} handleDuaNumber={handleDuaNumber} />
                         </div>
                     </div>
                     <h1 className="text-center">দোয়া ও যিকরসমূহ</h1>
@@ -168,7 +166,7 @@ export default function DuaZikr() {
                     }
                 </div>
             </div>
-            <div className={`col-md-2 ${c.desktopcat}`}>
+            <div className={`col-md-3 ${c.desktopcat}`}>
                 <div className={c.right}>
                     <h4 className="text-center pt-3 text-light">ফন্ট সেটিংস</h4>
                     <div className="px-2">
@@ -177,6 +175,10 @@ export default function DuaZikr() {
                         <p className="pt-2 mb-0 text-light"><strong>ফন্ট সাইজ (বাংলা)</strong></p>
                         <Slider style={{ color: '#eee' }} value={banglaSize} onChange={handleBangla} aria-labelledby="font-size-slider" />
                     </div>
+                </div>
+                <div className={c.right}>
+                    <h4 className="text-center pt-3 mb-0 text-light">দু'আ ক্যাটাগরি</h4>
+                    <DuaCategory dua={name} handleDuaNumber={handleDuaNumber} />
                 </div>
             </div>
         </div>

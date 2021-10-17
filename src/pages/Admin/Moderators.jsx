@@ -45,8 +45,6 @@ export default function Moderators() {
     const classes = useStyles();
     let data = useFetch('/api/jiggasa/moderators')
 
-    console.log(data)
-
     return <div className="row">
         <AdminSide />
         <div className="col-md-10">

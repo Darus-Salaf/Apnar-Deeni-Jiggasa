@@ -10,7 +10,7 @@ export default function VideoList() {
         <AdminSide />
         <div className="col-md-10">
             <h1 className="text-center text-light mt-4 border rounded py-3">ভিডিও লিস্ট ({data.length} টি)</h1>
-            <List topic={'ভিডিওর টপিক'} data={data} action={'video'} />
+            <List topic={'ভিডিওর টপিক'} data={data} action='videoedit' />
         </div>
     </div>
 }

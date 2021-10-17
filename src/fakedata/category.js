@@ -7,16 +7,6 @@ import duaZikr from '../icon/duaozikr.svg'
 import akhlak from '../icon/akhlak.svg'
 import haram from '../icon/haram.svg'
 
-let PdfCategories = [
-    { icon: tawheed, cat: 'pdf-books', subCat: 'tawheed', name: 'তাওহীদ' },
-    { icon: salat, cat: 'pdf-books', subCat: 'salat', name: 'সালাত' },
-    { icon: zakat, cat: 'pdf-books', subCat: 'zakat', name: 'যাকাত' },
-    { icon: siyam, cat: 'pdf-books', subCat: 'siyam', name: 'সিয়াম' },
-    { icon: hajj, cat: 'pdf-books', subCat: 'hajj', name: 'হজ্জ' },
-    { icon: duaZikr, cat: 'pdf-books', subCat: 'duaozikir', name: 'দোয়া/যিকির' },
-    { icon: akhlak, cat: 'pdf-books', subCat: 'akhlak', name: 'আখলাক্ব' },
-    { icon: haram, cat: 'pdf-books', subCat: 'haram', name: 'হারাম বিষয়াবলি' },
-]
 let nastikko = [
     { icon: tawheed, cat: 'nastikkobad', subCat: 'tawheed', name: 'তাওহীদ' },
     { icon: tawheed, cat: 'nastikkobad', subCat: 'Quran', name: 'কুরআন' },
@@ -171,4 +161,4 @@ let contemBlog = [
     },
 ]
 
-export { PdfCategories, nastikko, written, video, nari, contemSub, contemBlog }
+export { nastikko, written, video, nari, contemSub, contemBlog }

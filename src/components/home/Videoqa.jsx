@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 export default function Videoqa() {
 
     const data = useFetch('/api/jiggasa/videos')
-    console.log(data)
 
     return (
         <div className="my-5">

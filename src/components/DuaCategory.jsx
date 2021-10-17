@@ -3,22 +3,20 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Button, Dialog } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { useState } from 'react'
 import c from '../styles/dua.module.css'
 import { AccordionHeader, AccordionText } from '../styles/muicustoms';
 
-export default function DuaCategory({ handleDuaNumber, dua, mobile }) {
+export default function DuaCategory({ handleDuaNumber, dua }) {
 
-    const [expanded, setExpanded] = React.useState(false)
-    const [open, setOpen] = useState(false)
+    const [expanded, setExpanded] = useState(false)
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     }
     const handleClick = id => {
         handleDuaNumber(id)
-        setOpen(false)
     }
 
     const cats = [
@@ -44,43 +42,31 @@ export default function DuaCategory({ handleDuaNumber, dua, mobile }) {
     ]
 
     return (
-        <div className={mobile ? c.mobileBtn3 : c.mobileBtn2}>
-            <Button onClick={() => setOpen(true)}>
-                দু'আর ক্যাটাগরি
-            </Button>
-            <Dialog
-                open={open}
-                onClose={() => setOpen(false)}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <div className={c.cat} style={{ minWidth: '30vw', border: '5px solid #eee' }}>
-                    {
-                        cats.map((item, key) => {
-                            const selected = dua.filter(i => item.slug === i[2])
+        <div className={c.cat}>
+            {
+                cats.map((item, key) => {
+                    const selected = dua.filter(i => item.slug === i[2])
 
-                            return <Accordion expanded={expanded === `panel${key + 1}`} onChange={handleChange(`panel${key + 1}`)}>
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon style={{ color: '#eee' }} />}
-                                    aria-controls="panel1bh-content"
-                                    id="panel1bh-header"
-                                >
-                                    <AccordionHeader>{item.name}</AccordionHeader>
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    <AccordionText>
-                                        {
-                                            selected.map((i, n) => <>
-                                                <Button onClick={() => handleClick(i[0])} style={{ color: '#eee', fontWeight: '300' }} key={n}>{i[1]}</Button> <hr style={{ color: '#eee', height: '2px', margin: '0' }} /></>
-                                            )
-                                        }
-                                    </AccordionText>
-                                </AccordionDetails>
-                            </Accordion>
-                        })
-                    }
-                </div>
-            </Dialog>
+                    return <Accordion expanded={expanded === `panel${key + 1}`} onChange={handleChange(`panel${key + 1}`)}>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon style={{ color: '#eee' }} />}
+                            aria-controls="panel1bh-content"
+                            id="panel1bh-header"
+                        >
+                            <AccordionHeader>{item.name}</AccordionHeader>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <AccordionText>
+                                {
+                                    selected.map((i, n) => <>
+                                        <Button onClick={() => handleClick(i[0])} style={{ color: '#eee', fontWeight: '300' }} key={n}>{i[1]}</Button> <hr style={{ color: '#eee', height: '2px', margin: '0' }} /></>
+                                    )
+                                }
+                            </AccordionText>
+                        </AccordionDetails>
+                    </Accordion>
+                })
+            }
         </div>
     )
 }

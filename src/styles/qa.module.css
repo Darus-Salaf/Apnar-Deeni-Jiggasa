@@ -78,12 +78,12 @@
     font-size: 1rem;
 }
 .bg2>ul {
-    padding: 0 0 10px 15px;
+    padding: 10px;
 }
 .bg2>ul>li {
     display: flex;
     align-items: center;
-    padding: 3px 0;
+    padding: 3px;
 }
 .bg2>ul>li>.square {
     height: 10px;
@@ -101,7 +101,12 @@
 .contempList:hover {
     color:aqua;
 }
-
+.listItem:hover {
+    background: #163c3f;
+}
+.listItem:hover button{
+    color: aqua !important;
+}
 .video>ul>li>button {
     display: block;
     background-color: #4d878b;

@@ -10,6 +10,7 @@ import axios from "axios"
 import Edit from "../Edit"
 import moment from "moment"
 import Answer from "../Answer"
+import VideoEdit from "../VideoEdit"
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -117,6 +118,10 @@ export default function TablePagination({ data, action, isquestion }) {
                         <StyledTableCell><Edit id={item._id} topic={item.topic} question={item.question} answer={item.answer} /></StyledTableCell>
                     }
                     {
+                        action === 'videoedit' &&
+                        <StyledTableCell><VideoEdit id={item._id} topic={item.topic} link={item.link} /></StyledTableCell>
+                    }
+                    {
                         action === 'ques' &&
                         <StyledTableCell><Answer question={item.question} id={item._id} status={item.status} style={{ pointerEvents: item.status === 'per' ? 'none' : '' }}
                             variant="contained" color={item.status === 'per' ? '' : 'primary'}>
@@ -127,8 +132,8 @@ export default function TablePagination({ data, action, isquestion }) {
                     }
                     {action === 'edit' && <StyledTableCell><Button onClick={() => handleDeletePost(item._id)} variant="contained" color="secondary">ডিলিট <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
                     {isquestion && <StyledTableCell><Button onClick={() => handleDeleteQuestion(item._id)} variant="contained" color="secondary">ডিলিট <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
-                    {action === 'video' && <StyledTableCell><Button onClick={() => handleDeleteVideo(item._id)} variant="contained" color="secondary">ডিলিটv <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
-                    {action === 'pdf' && <StyledTableCell><Button onClick={() => handleDeletePdf(item._id)} variant="contained" color="secondary">ডিলিটp <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
+                    {action === 'videoedit' && <StyledTableCell><Button onClick={() => handleDeleteVideo(item._id)} variant="contained" color="secondary">ডিলিট <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
+                    {action === 'pdf' && <StyledTableCell><Button onClick={() => handleDeletePdf(item._id)} variant="contained" color="secondary">ডিলিট <DeleteForever className="ps-1 ms-2" /> </Button></StyledTableCell>}
 
                 </StyledTableRow>
             })}
