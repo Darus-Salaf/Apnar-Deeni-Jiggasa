@@ -3,8 +3,8 @@ import useFetch from "../../pages/Admin/useFetch"
 
 export default function RightSide() {
 
-    let data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/posts/')
-    let blogs = useFetch('https://apnardeenijiggasa.com/api/jiggasa/questions/per')
+    let data = useFetch('/api/jiggasa/posts/')
+    let blogs = useFetch('/api/jiggasa/questions/per')
 
     return <>
         <Contemporary name={'সাম্প্রতিক বিষয়াদি'} item={data.slice(7, 12).reverse()} isWritten={true} />

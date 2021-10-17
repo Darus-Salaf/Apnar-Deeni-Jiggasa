@@ -19,7 +19,7 @@ export default function BlogDetails() {
     const [text, setText] = useState('')
 
     useEffect(() => {
-        fetch(`https://apnardeenijiggasa.com/api/jiggasa/questions/per/${blogId}`)
+        fetch(`/api/jiggasa/questions/per/${blogId}`)
             .then(res => res.json())
             .then(data => setPost(data[0]))
             .catch(err => console.log((err.message)))
@@ -27,7 +27,7 @@ export default function BlogDetails() {
 
     const handleComment = () => {
         if (text) {
-            fetch(`https://apnardeenijiggasa.com/api/jiggasa/comment`, {
+            fetch(`/api/jiggasa/comment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

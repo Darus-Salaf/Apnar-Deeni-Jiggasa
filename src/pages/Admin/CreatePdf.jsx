@@ -21,7 +21,7 @@ export default function CreatePdf() {
     const handlePost = () => {
         if (input.cat && input.link && input.name && input.description) {
 
-            fetch('https://apnardeenijiggasa.com/api/jiggasa/create/pdf', {
+            fetch('/api/jiggasa/create/pdf', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

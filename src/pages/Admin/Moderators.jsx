@@ -46,10 +46,10 @@ const useStyles = makeStyles({
 export default function Moderators() {
 
     const classes = useStyles();
-    let data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/moderators')
+    let data = useFetch('/api/jiggasa/moderators')
 
     const handleReset = id => {
-        fetch(`http://localhost:5000/api/jiggasa/moderators/remove/post/${id}`)
+        fetch(`/api/jiggasa/moderators/remove/post/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Reset this moderator')

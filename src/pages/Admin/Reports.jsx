@@ -50,7 +50,7 @@ const useStyles = makeStyles({
 export default function Reports() {
 
     const deleteReport = id => {
-        axios.delete(`https://apnardeenijiggasa.com/api/jiggasa/delete/report/${id}`)
+        axios.delete(`/api/jiggasa/delete/report/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Deleted the Report !')
@@ -61,7 +61,7 @@ export default function Reports() {
     }
 
     const classes = useStyles();
-    let data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/report/comments')
+    let data = useFetch('/api/jiggasa/report/comments')
 
     return <div className="row">
         <AdminSide />

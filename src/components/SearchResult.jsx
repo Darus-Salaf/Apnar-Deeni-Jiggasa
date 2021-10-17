@@ -10,7 +10,7 @@ export default function SearchResult() {
 
     const { search } = useParams()
 
-    let data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/posts')
+    let data = useFetch('/api/jiggasa/posts')
     let filteredData = data.filter(item => item.answer.toLowerCase().includes(search.toLowerCase()))
 
     let width = window.innerWidth < 1230

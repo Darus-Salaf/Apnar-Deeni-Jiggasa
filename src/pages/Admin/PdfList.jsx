@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function PdfList() {
 
-    const data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/pdfs')
+    const data = useFetch('/api/jiggasa/pdfs')
 
     return <div className="row">
         <AdminSide />
