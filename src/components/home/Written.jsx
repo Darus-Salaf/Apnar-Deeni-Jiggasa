@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import Dialog from '../Dialog'
 import c from '../../styles/qa.module.css'
 import useFetch from '../../pages/Admin/useFetch'
 import Spinner from '../Spinner'
@@ -18,7 +17,7 @@ export default function Written() {
             <ul>
                 {!likhito.length && <div className="py-5 my-5 text-center"><Spinner /></div>}
                 {
-                    likhito.map((q, index) => <li key={index}><Dialog question={q.question} refs={q.ref} topic={q.topic} answer={q.answer} /></li>)
+                    likhito.map((q, index) => <li key={index}><Link to={`/answer/${q._id}`}>{q.question}</Link></li>)
                 }
             </ul>
         </div>
@@ -32,7 +31,7 @@ export default function Written() {
 
             <ul>
                 {
-                    nari.slice(0, 3).map((q, index) => <li key={index}><Dialog question={q.question} refs={q.ref} topic={q.topic} answer={q.answer} /></li>)
+                    nari.slice(0, 3).map((q, index) => <li key={index}><Link to={`/answer/${q._id}`}>{q.question}</Link></li>)
                 }
             </ul>
         </div>

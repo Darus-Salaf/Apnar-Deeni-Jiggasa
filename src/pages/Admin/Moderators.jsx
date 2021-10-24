@@ -48,11 +48,21 @@ export default function Moderators() {
     const classes = useStyles();
     let data = useFetch('/api/jiggasa/moderators')
 
-    const handleReset = id => {
+    const handleResetPost = id => {
         fetch(`/api/jiggasa/moderators/remove/post/${id}`)
             .then(res => {
                 if (res.status === 200) {
-                    alert('Successfully Reset this moderator')
+                    alert('Successfully Reset this moderator\'s post')
+                    window.location.reload()
+                } else alert('Failed to Reset this moderator, Please try again later')
+            })
+            .catch(err => alert(err.message))
+    }
+    const handleResetVideo = id => {
+        fetch(`/api/jiggasa/moderators/remove/video/${id}`)
+            .then(res => {
+                if (res.status === 200) {
+                    alert('Successfully Reset this moderator\'s video')
                     window.location.reload()
                 } else alert('Failed to Reset this moderator, Please try again later')
             })
@@ -71,7 +81,9 @@ export default function Moderators() {
                                 <StyledTableCell StyledTableCell> নাম</StyledTableCell>
                                 <StyledTableCell StyledTableCell> ইমেইল</StyledTableCell>
                                 <StyledTableCell StyledTableCell> পোস্টসংখ্যা</StyledTableCell>
-                                <StyledTableCell StyledTableCell> পোস্ট রিসেট করুন</StyledTableCell>
+                                <StyledTableCell StyledTableCell> ভিডিওসংখ্যা</StyledTableCell>
+                                <StyledTableCell StyledTableCell> পোস্ট রিসেট</StyledTableCell>
+                                <StyledTableCell StyledTableCell> ভিডিও রিসেট</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         {
@@ -79,7 +91,9 @@ export default function Moderators() {
                                 <StyledTableCell>{item.name}</StyledTableCell>
                                 <StyledTableCell>{item.email}</StyledTableCell>
                                 <StyledTableCell>{item.post.length}</StyledTableCell>
-                                <StyledTableCell><Button onClick={() => handleReset(item._id)} variant="contained" color="secondary"><DeleteForeverIcon /> রিসেট</Button></StyledTableCell>
+                                <StyledTableCell>{item.video?.length || 0}</StyledTableCell>
+                                <StyledTableCell><Button onClick={() => handleResetPost(item._id)} variant="contained" color="secondary"><DeleteForeverIcon /> রিসেট পোস্ট</Button></StyledTableCell>
+                                <StyledTableCell><Button onClick={() => handleResetVideo(item._id)} variant="contained" color="secondary"><DeleteForeverIcon /> রিসেট ভিডিও</Button></StyledTableCell>
                             </StyledTableRow>)
                         }
                     </Table>

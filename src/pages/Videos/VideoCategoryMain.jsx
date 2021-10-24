@@ -1,9 +1,8 @@
 import RightSide from '../../components/home/RightSide';
 import QaForm from '../../components/home/QaForm';
 import c2 from '../../styles/qa.module.css'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useFetch from '../Admin/useFetch';
-import VideoDialog from '../../components/VideoDialog';
 import Spinner from '../../components/Spinner';
 
 let width = window.innerWidth < 1230
@@ -24,7 +23,7 @@ export default function VideoCategoryMain() {
                         <ul>
                             {!data.length && <div className="py-5 my-5 text-center"><Spinner /></div>}
                             {
-                                data.map(vid => <li><VideoDialog topic={vid.topic} link={vid.link} /></li>)
+                                data.map(vid => <li><Link to={`/video-answer/${vid._id}`}>{vid.topic}</Link></li>)
                             }
                         </ul>
                     </div>

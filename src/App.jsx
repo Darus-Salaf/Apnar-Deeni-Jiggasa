@@ -33,6 +33,9 @@ import ModRoute from './pages/Admin/Moderator/ModRoute'
 import ModeratorLogin from './pages/Admin/Moderator/ModeratorLogin'
 import ModerateMain from './pages/Admin/Moderator/ModerateMain'
 import Moderators from './pages/Admin/Moderators'
+import Answers from './components/Answers'
+import VideoAnswer from './components/VideoAnswer'
+import ModeratorVideo from './pages/Admin/Moderator/ModeratorVideo'
 
 export const AdminContext = createContext()
 export const ModeratorContext = createContext()
@@ -95,6 +98,12 @@ export default function App() {
                       <Route path="/nastikkobad">
                         <AtheistCat />
                       </Route>
+                      <Route path="/answer/:quId">
+                        <Answers />
+                      </Route>
+                      <Route path="/video-answer/:vidId">
+                        <VideoAnswer />
+                      </Route>
                       <Route path="/proshnottor/nastikkobad/:athId">
                         <AtheistMain />
                       </Route>
@@ -145,6 +154,9 @@ export default function App() {
                       </Route>
                       <ModRoute path="/moderator">
                         <ModerateMain />
+                      </ModRoute>
+                      <ModRoute path="/moderator-video">
+                        <ModeratorVideo />
                       </ModRoute>
 
                     </Layout>

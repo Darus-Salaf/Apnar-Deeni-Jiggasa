@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core"
 import { useEffect, useState } from "react"
-import Dialog from '../Dialog'
+import { Link } from "react-router-dom"
 import './pagination.css'
 
 export default function QuestionPagination({ data, pageLimit }) {
@@ -27,7 +27,7 @@ export default function QuestionPagination({ data, pageLimit }) {
     return (
         <>
 
-            {getPaginatedData().map((d, index) => <li key={index}><Dialog topic={d.topic} question={d.question} answer={d.answer} /> </li>)}
+            {getPaginatedData().map((d, index) => <li key={index}><Link to={`/answer/${d._id}`}>{d.question}</Link> </li>)}
 
             <nav className="navbar myNav justify-content-center mt-5 mb-3">
                 <ul className="pagination d-flex align-items-center">
@@ -40,6 +40,7 @@ export default function QuestionPagination({ data, pageLimit }) {
                             prev
                         </Button>
                     </li>
+                    <li className="px-4 text-white">{currentPage}</li>
                     <li>
                         <Button
                             variant="contained" color="primary"

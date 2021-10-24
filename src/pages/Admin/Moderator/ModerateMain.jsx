@@ -3,6 +3,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@m
 import React, { useEffect, useState } from 'react'
 import c from '../../../styles/admin.module.css'
 import jwt from 'jsonwebtoken'
+import { Link } from 'react-router-dom'
 
 export default function ModerateMain() {
 
@@ -27,7 +28,7 @@ export default function ModerateMain() {
     const decodedToken = jwt.verify(token, hash)
 
     useEffect(() => {
-        fetch(`/api/jiggasa/moderator/${decodedToken.email}`)
+        fetch(`/api/jiggasa/moderator-post/${decodedToken.email}`)
             .then(res => res.json())
             .then(data => setModData(data))
             .catch(err => console.log(err.message))
@@ -51,7 +52,7 @@ export default function ModerateMain() {
                 .then(data => {
                     if (data.insertedId) {
 
-                        // Increase a count for the post of moderator
+                        // Increase a count for the post of this moderator
                         fetch(`/api/jiggasa/moderator/${decodedToken.email}/post/${input.topic}`)
                             .then(res => res.json())
                             .then(data => console.log(data))
@@ -68,7 +69,7 @@ export default function ModerateMain() {
 
     return <div className="container">
         <h2 className="text-center text-light mt-4 border rounded py-3">আপনার পোস্ট সংখ্যা <strong className="text-warning ps-3"> {modData.posts?.length}</strong></h2>
-        <h1 className="text-center text-light mt-4 border rounded py-3">একটি প্রশ্ন/পোস্ট লিখুন</h1>
+        <h1 className="text-center text-light mt-4 border rounded py-3"><Link to="/moderator">একটি প্রশ্ন লিখুন</Link> || <Link to="/moderator-video">একটি ভিডিও পোস্ট করুন</Link></h1>
         <div className={c.adminInput}>
             <div className="my-4 d-flex justify-content-between">
                 <FormControl style={{ width: '45%', }}>
