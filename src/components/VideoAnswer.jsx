@@ -6,7 +6,7 @@ import Spinner from './Spinner'
 export default function VideoAnswer() {
 
     const { vidId } = useParams()
-    let data = useFetch(`/api/jiggasa/video/${vidId}`)
+    let data = useFetch(`https://apnardeenijiggasa.com/api/jiggasa/video/${vidId}`)
 
     return data.length > 0 ? <div className="container py-5 mt-5">
         <div className="videoMain">

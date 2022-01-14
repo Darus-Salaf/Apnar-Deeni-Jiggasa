@@ -16,7 +16,7 @@ function SimpleDialog(props) {
     }
 
     const handleReport = () => {
-        fetch(`/api/jiggasa/report/comment`, {
+        fetch(`https://apnardeenijiggasa.com/api/jiggasa/report/comment`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

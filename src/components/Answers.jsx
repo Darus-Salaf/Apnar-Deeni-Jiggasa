@@ -10,7 +10,7 @@ export default function Answers() {
     const { quId } = useParams()
     const [size, setSize] = useState(16)
 
-    let data = useFetch(`/api/jiggasa/post/${quId}`)
+    let data = useFetch(`https://apnardeenijiggasa.com/api/jiggasa/post/${quId}`)
     console.log(data);
 
     return data.length > 0 ? <div className="container bg-light py-5 mt-4">

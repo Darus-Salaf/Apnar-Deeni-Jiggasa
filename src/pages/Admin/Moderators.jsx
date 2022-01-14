@@ -46,10 +46,10 @@ const useStyles = makeStyles({
 export default function Moderators() {
 
     const classes = useStyles();
-    let data = useFetch('/api/jiggasa/moderators')
+    let data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/moderators')
 
     const handleResetPost = id => {
-        fetch(`/api/jiggasa/moderators/remove/post/${id}`)
+        fetch(`https://apnardeenijiggasa.com/api/jiggasa/moderators/remove/post/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Reset this moderator\'s post')
@@ -59,7 +59,7 @@ export default function Moderators() {
             .catch(err => alert(err.message))
     }
     const handleResetVideo = id => {
-        fetch(`/api/jiggasa/moderators/remove/video/${id}`)
+        fetch(`https://apnardeenijiggasa.com/api/jiggasa/moderators/remove/video/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     alert('Successfully Reset this moderator\'s video')

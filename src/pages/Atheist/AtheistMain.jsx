@@ -6,7 +6,7 @@ import CategoryMain from "../CategoryMain"
 export default function AtheistMain() {
 
     const { athId } = useParams()
-    let data = useFetch(`/api/jiggasa/posts/nastikkobad/${athId}`, athId)
+    let data = useFetch(`https://apnardeenijiggasa.com/api/jiggasa/posts/nastikkobad/${athId}`, athId)
 
     return <CategoryMain headings={'নাস্তিক্যবাদের জবাবসমূহ'} data={data} />
 }

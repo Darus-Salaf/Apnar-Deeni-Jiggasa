@@ -32,7 +32,7 @@ export default function Edit({ id, topic, question, answer }) {
 
     const handleUpdate = () => {
         if (text.topic && text.answer) {
-            fetch('/api/jiggasa/update/post', {
+            fetch('https://apnardeenijiggasa.com/api/jiggasa/update/post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

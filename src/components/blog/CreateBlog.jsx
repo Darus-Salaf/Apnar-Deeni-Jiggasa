@@ -26,7 +26,7 @@ export default function CreateBlog() {
 
         if (input.email && input.question) {
 
-            fetch('/api/jiggasa/create/question', {
+            fetch('https://apnardeenijiggasa.com/api/jiggasa/create/question', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

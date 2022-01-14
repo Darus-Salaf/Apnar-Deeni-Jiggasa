@@ -21,7 +21,7 @@ export default function CreateVideo() {
     const handlePost = () => {
         if (input.cat && input.link && input.sheikh && input.topic) {
 
-            fetch('/api/jiggasa/create/video', {
+            fetch('https://apnardeenijiggasa.com/api/jiggasa/create/video', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

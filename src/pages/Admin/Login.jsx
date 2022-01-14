@@ -26,7 +26,7 @@ export default function Login() {
 
         if (input.email && input.password && input.code) {
 
-            fetch('/api/jiggasa/admin/login', {
+            fetch('https://apnardeenijiggasa.com/api/jiggasa/admin/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

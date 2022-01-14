@@ -10,7 +10,7 @@ let width = window.innerWidth < 1230
 export default function VideoCategoryMain() {
 
     const { vidId } = useParams()
-    let data = useFetch(`/api/jiggasa/videos/${vidId}`, vidId)
+    let data = useFetch(`https://apnardeenijiggasa.com/api/jiggasa/videos/${vidId}`, vidId)
 
     return <div className={`${width ? 'container' : ''} my-4`}>
 

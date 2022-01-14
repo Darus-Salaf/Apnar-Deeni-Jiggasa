@@ -31,7 +31,7 @@ export default function VideoEdit({ id, topic, link }) {
 
     const handleUpdate = () => {
         if (text.topic && text.link) {
-            fetch('/api/jiggasa/update/video', {
+            fetch('https://apnardeenijiggasa.com/api/jiggasa/update/video', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

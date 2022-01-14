@@ -4,7 +4,7 @@ import useFetch from './useFetch'
 
 export default function PostList() {
     
-    const data = useFetch('/api/jiggasa/posts')
+    const data = useFetch('https://apnardeenijiggasa.com/api/jiggasa/posts')
     
     return <div className="row">
         <AdminSide />

@@ -24,7 +24,7 @@ export default function CreatePost() {
     const handlePost = () => {
         if (input.cat && input.subcat && input.question && input.answer && input.topic) {
 
-            fetch('/api/jiggasa/create/post', {
+            fetch('https://apnardeenijiggasa.com/api/jiggasa/create/post', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

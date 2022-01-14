@@ -26,7 +26,7 @@ export default function ModeratorVideo() {
     const decodedToken = jwt.verify(token, hash)
 
     useEffect(() => {
-        fetch(`/api/jiggasa/moderator-video/${decodedToken.email}`)
+        fetch(`https://apnardeenijiggasa.com/api/jiggasa/moderator-video/${decodedToken.email}`)
             .then(res => res.json())
             .then(data => setModData(data))
             .catch(err => console.log(err.message))
@@ -39,7 +39,7 @@ export default function ModeratorVideo() {
                 ...input,
                 creator: decodedToken.email
             }
-            fetch('/api/jiggasa/create/video', {
+            fetch('https://apnardeenijiggasa.com/api/jiggasa/create/video', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export default function ModeratorVideo() {
                     if (data.insertedId) {
 
                         // Increase a count for the video of this moderator
-                        fetch(`/api/jiggasa/moderator/${decodedToken.email}/video/${input.topic}`)
+                        fetch(`https://apnardeenijiggasa.com/api/jiggasa/moderator/${decodedToken.email}/video/${input.topic}`)
                             .then(res => res.json())
                             .then(data => console.log(data))
                             .catch(err => console.log(err.message))

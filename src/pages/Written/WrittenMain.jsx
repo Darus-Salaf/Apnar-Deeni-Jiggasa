@@ -6,7 +6,7 @@ import CategoryMain from "../CategoryMain"
 export default function WrittenMain() {
 
     const { likId } = useParams()
-    let data = useFetch(`/api/jiggasa/posts/likhito-proshno/${likId}`, likId)
+    let data = useFetch(`https://apnardeenijiggasa.com/api/jiggasa/posts/likhito-proshno/${likId}`, likId)
 
     return <CategoryMain headings={'লিখিত প্রশ্নোত্তরসমূহ'} data={data} />
 }
