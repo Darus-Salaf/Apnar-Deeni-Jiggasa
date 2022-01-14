@@ -2,7 +2,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import BlogPost from "../../components/blog/BlogPost"
 import CreateBlog from "../../components/blog/CreateBlog"
 import RightSide from "../../components/home/RightSide"
-import useFetch from "../Admin/useFetch"
+import useFetch from "../../utils/Hooks/useFetch"
 import c from '../../styles/category.module.css'
 import { Link } from 'react-router-dom'
 

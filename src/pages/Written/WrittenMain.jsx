@@ -1,4 +1,4 @@
-import useFetch from "../Admin/useFetch"
+import useFetch from "../../utils/Hooks/useFetch"
 import { useParams } from "react-router-dom"
 import CategoryMain from "../CategoryMain"
 

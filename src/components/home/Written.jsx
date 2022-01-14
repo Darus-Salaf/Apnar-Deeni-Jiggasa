@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import c from '../../styles/qa.module.css'
-import useFetch from '../../pages/Admin/useFetch'
+import useFetch from '../../utils/Hooks/useFetch'
 import Spinner from '../Spinner'
 
 export default function Written() {

@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar"
 import c from '../../styles/category.module.css'
 import RightSide from "./RightSide"
 import { Link } from "react-router-dom"
+import MenuBookRoundedIcon from '@material-ui/icons/MenuBookRounded'
 
 let widthforSide = window.innerWidth < 1200
 let width = window.innerWidth < 1230
@@ -24,9 +25,9 @@ export default function Category({ categories, headings, slug }) {
                     {
                         categories.map((cat, i) => (
                             <div className="col-lg-4 col-6" key={i}>
-                                <Link to={`/${slug}/${cat.cat}/${cat.subCat}`}>
+                                <Link to={`/category/sub-category/${cat.name}`}>
                                     <div className={c.category}>
-                                        <img width="100px" height="100px" src={cat.icon} alt="category" />
+                                        <MenuBookRoundedIcon fontSize="large" />
                                         <h4>{cat.name}</h4>
                                     </div>
                                 </Link>

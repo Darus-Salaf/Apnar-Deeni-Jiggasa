@@ -1,5 +1,5 @@
 import Contemporary from "./Contemporary"
-import useFetch from "../../pages/Admin/useFetch"
+import useFetch from "../../utils/Hooks/useFetch"
 
 export default function RightSide() {
 

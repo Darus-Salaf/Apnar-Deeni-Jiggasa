@@ -6,7 +6,7 @@ import TelegramIcon from '@material-ui/icons/Telegram'
 import moment from "moment"
 import c from '../../styles/blog.module.css'
 import { Link, useHistory } from "react-router-dom"
-import useFetch from "../../pages/Admin/useFetch"
+import useFetch from "../../utils/Hooks/useFetch"
 
 const SinglePost = ({ id }) => {
 

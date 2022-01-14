@@ -39,9 +39,6 @@ export default function Navbar() {
                         <li><Link to="/nastikkobad">নাস্তিক্যবাদ</Link></li>
                         <li><Link to="/blog">ব্লগ</Link></li>
                         <li><Link to="/about-us">আমাদের সম্পর্কে</Link></li>
-                        {localStorage.getItem('admin_token') && <li><Link to="/admin">Admin</Link></li>}
-                        {localStorage.getItem('moderator_token') && <li><Link to="/moderator">Moderator</Link></li>}
-
                     </ul>
                 </div>
                 <form onSubmit={e => handleMobileSearch(e)}>

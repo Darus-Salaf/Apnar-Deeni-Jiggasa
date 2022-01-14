@@ -2,7 +2,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { useState } from 'react';
 import { useParams } from 'react-router';
-import useFetch from '../pages/Admin/useFetch';
+import useFetch from '../utils/Hooks/useFetch';
 import Spinner from './Spinner';
 
 export default function Answers() {

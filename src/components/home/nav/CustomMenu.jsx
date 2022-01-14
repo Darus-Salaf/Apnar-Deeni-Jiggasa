@@ -30,8 +30,6 @@ export default function CustomMenu({ title, links }) {
             {
                 links.map(link => <MenuItem className={c.menuList} onClick={handleClose}><Link to={link.link}>{link.name}</Link></MenuItem>)
             }
-            {localStorage.getItem('admin_token') && <MenuItem className={c.menuList} onClick={handleClose}><Link to="/admin">Admin</Link></MenuItem>}
-            {localStorage.getItem('moderator_token') && <MenuItem className={c.menuList} onClick={handleClose}><Link to="/moderator">Moderator</Link></MenuItem>}
         </Menu>
     </div>
 }

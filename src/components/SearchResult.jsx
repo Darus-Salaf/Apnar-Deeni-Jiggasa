@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import useFetch from "../pages/Admin/useFetch"
+import useFetch from "../utils/Hooks/useFetch"
 import RightSide from "./home/RightSide"
 import c from '../styles/qa.module.css'
 import Spinner from "./Spinner"

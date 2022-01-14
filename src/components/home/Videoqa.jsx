@@ -1,4 +1,4 @@
-import useFetch from '../../pages/Admin/useFetch'
+import useFetch from '../../utils/Hooks/useFetch'
 import c from '../../styles/qa.module.css'
 import { Link } from 'react-router-dom'
 

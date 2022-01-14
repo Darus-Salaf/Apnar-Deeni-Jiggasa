@@ -2,7 +2,7 @@ import RightSide from '../../components/home/RightSide';
 import QaForm from '../../components/home/QaForm';
 import c2 from '../../styles/qa.module.css'
 import { Link, useParams } from 'react-router-dom';
-import useFetch from '../Admin/useFetch';
+import useFetch from '../../utils/Hooks/useFetch';
 import Spinner from '../../components/Spinner';
 
 let width = window.innerWidth < 1230

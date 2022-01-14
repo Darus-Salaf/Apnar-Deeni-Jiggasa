@@ -54,6 +54,10 @@
     padding: 10px;
     transition: all .2s ease-in-out;
 }
+.category>svg {
+    font-size: 4.1875rem;
+    color: white;
+}
 .category:hover {
     background-color: #163c3f;
     transform: scale(1.1);
