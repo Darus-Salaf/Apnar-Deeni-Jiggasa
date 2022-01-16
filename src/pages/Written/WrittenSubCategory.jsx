@@ -4,9 +4,9 @@ import cats from '../../fakedata/cats'
 
 export default function WrittenSubCategories() {
 
-  const { subCat } = useParams()
-  let _sub = cats.filter(item => item.cat === subCat)
+  const { cat } = useParams()
+  let _sub = cats.filter(item => item.cat === cat)
   let subCategories = _sub.map(item => item.subCat)
 
-  return <SubCategories categories={subCategories} headings={`${subCat}বিষয়ক লিখিত প্রশ্নোত্তর`} />
+  return <SubCategories categories={subCategories} cat={cat} headings={`${cat}বিষয়ক লিখিত প্রশ্নোত্তর`} />
 }

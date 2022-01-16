@@ -25,7 +25,7 @@ export default function Category({ categories, headings }) {
                     {
                         categories.map((cat, i) => (
                             <div className="col-lg-4 col-6" key={i}>
-                                <Link to={`/category/sub-category/${cat.cat}`}>
+                                <Link to={`/category/${cat.cat}`}>
                                     <div className={c.category}>
                                         <MenuBookRoundedIcon fontSize="large" />
                                         <h4>{cat.cat}</h4>

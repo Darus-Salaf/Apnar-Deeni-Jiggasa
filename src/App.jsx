@@ -23,6 +23,7 @@ import DuaZikr from './pages/DuaZikr'
 import Answers from './components/Answers'
 import VideoAnswer from './components/VideoAnswer'
 import WrittenSubCategories from './pages/Written/WrittenSubCategory'
+import QuestionList from './components/home/QuestionList'
 
 export const AdminContext = createContext()
 export const ModeratorContext = createContext()
@@ -67,8 +68,11 @@ export default function App() {
                       <Route path="/likhito-proshno">
                         <WrittenCategories />
                       </Route>
-                      <Route path="/category/sub-category/:subCat">
+                      <Route path="/category/:cat">
                         <WrittenSubCategories />
+                      </Route>
+                      <Route path="/category-/:cat/sub-category/:subCat">
+                        <QuestionList />
                       </Route>
                       <Route path="/proshnottor/likhito-proshno/:likId">
                         <WrittenMain />
