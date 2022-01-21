@@ -9,10 +9,9 @@ import { useParams } from "react-router-dom"
 let widthforSide = window.innerWidth < 1200
 let width = window.innerWidth < 1230
 
-export default function SubCategories({ categories, headings }) {
+export default function SubCategories({ categories, headings, types }) {
 
   const { cat } = useParams()
-  console.log(categories)
 
   return <div className={`${width ? 'container' : ''} my-4`}>
 
@@ -29,7 +28,7 @@ export default function SubCategories({ categories, headings }) {
           {
             categories[0].map((cats, i) => (
               <div className="col-lg-4 col-6" key={i}>
-                <Link to={`/category-/${cat}/sub-category/${cats}`}>
+                <Link to={`/category-/${cat}/sub-category/${cats}/type/${types}`}>
                   <div className={c.category}>
                     <MenuBookRoundedIcon fontSize="large" />
                     <h4>{cats}</h4>

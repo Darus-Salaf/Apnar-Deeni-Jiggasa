@@ -8,7 +8,7 @@ import MenuBookRoundedIcon from '@material-ui/icons/MenuBookRounded'
 let widthforSide = window.innerWidth < 1200
 let width = window.innerWidth < 1230
 
-export default function Category({ categories, headings }) {
+export default function Categorycopy({ categories, headings, types }) {
 
     return <div className={`${width ? 'container' : ''} my-4`}>
 
@@ -25,7 +25,7 @@ export default function Category({ categories, headings }) {
                     {
                         categories.map((cat, i) => (
                             <div className="col-lg-4 col-6" key={i}>
-                                <Link to={`/category/${cat.cat}`}>
+                                <Link to={`/category/${cat.cat}/type/${types}`}>
                                     <div className={c.category}>
                                         <MenuBookRoundedIcon fontSize="large" />
                                         <h4>{cat.cat}</h4>

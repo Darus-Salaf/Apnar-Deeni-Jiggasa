@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import c from '../../styles/qa.module.css'
 import useFetch from '../../utils/Hooks/useFetch'
+import useFetch2 from '../../utils/Hooks/useFetch2'
 import Spinner from '../Spinner'
 
 export default function Written() {
 
-    let likhito = useFetch('https://apnardeenijiggasa.com/api/jiggasa/posts/likhito-proshno/tawheed')
-    let nari = useFetch('https://apnardeenijiggasa.com/api/jiggasa/posts/nari-ongon/porda')
+    let { data, loading } = useFetch2('http://localhost:5000/datacenter/api/post')
+    let nari = useFetch('http://localhost:5000/datacenter/api/nari/')
 
     return <div className={c.bg}>
 
@@ -15,9 +16,9 @@ export default function Written() {
 
         <div className={c.list}>
             <ul>
-                {!likhito.length && <div className="py-5 my-5 text-center"><Spinner /></div>}
-                {
-                    likhito.map((q, index) => <li key={index}><Link to={`/answer/${q._id}`}>{q.question}</Link></li>)
+                {loading ? <div className="py-5 my-5 text-center"><Spinner /></div>
+                    :
+                    data?.response?.map((q, index) => <li key={index}><Link to={`/answer/cat/post/id/${q._id}`}>{q.topic}</Link></li>)
                 }
             </ul>
         </div>
@@ -31,7 +32,7 @@ export default function Written() {
 
             <ul>
                 {
-                    nari.slice(0, 3).map((q, index) => <li key={index}><Link to={`/answer/${q._id}`}>{q.question}</Link></li>)
+                    nari?.response?.map((q, index) => <li key={index}><Link to={`/answer/cat/nari/id/${q._id}`}>{q.question}</Link></li>)
                 }
             </ul>
         </div>

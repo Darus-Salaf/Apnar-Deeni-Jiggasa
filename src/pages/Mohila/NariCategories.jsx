@@ -1,6 +1,6 @@
-import Category from '../../components/home/Category'
-import { nari } from '../../fakedata/category'
+import Categorycopy from '../../components/home/Categorycopy'
+import cats from '../../fakedata/cats'
 
 export default function NariCategories() {
-    return <Category categories={nari} slug={'proshnottor'} headings={'নারী অঙ্গন'} isCategory={true}/>
+    return <Categorycopy types='nari' categories={cats} headings={'ক্যাটাগরিভিত্তিক নারীঅঙ্গণ প্রশ্নোত্তর'} />
 }
