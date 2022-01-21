@@ -11,7 +11,7 @@ export default function VideoAnswer() {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:5000/datacenter/api/video/${vidId}`)
+        fetch(`https://darulislam.foundation/datacenter/api/video/${vidId}`)
             .then(res => res.json())
             .then(data => {
                 setLoading(false)

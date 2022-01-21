@@ -4,7 +4,7 @@ import useFetch from "../../utils/Hooks/useFetch"
 
 export default function RightSide() {
 
-    let data = useFetch('http://localhost:5000/datacenter/api/post/')
+    let data = useFetch('https://darulislam.foundation/datacenter/api/post/')
     let blogs = useFetch('https://apnardeenijiggasa.com/api/jiggasa/questions/per')
 
     // const [data, setData] = useState(null)

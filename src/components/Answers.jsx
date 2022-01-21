@@ -15,7 +15,7 @@ export default function Answers() {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:5000/datacenter/api/${qtype}/${quId}`)
+        fetch(`https://darulislam.foundation/datacenter/api/${qtype}/${quId}`)
             .then(res => res.json())
             .then(data => {
                 setData(data)

@@ -6,8 +6,8 @@ import Spinner from '../Spinner'
 
 export default function Written() {
 
-    let { data, loading } = useFetch2('http://localhost:5000/datacenter/api/post')
-    let nari = useFetch('http://localhost:5000/datacenter/api/nari/')
+    let { data, loading } = useFetch2('https://darulislam.foundation/datacenter/api/post')
+    let nari = useFetch('https://darulislam.foundation/datacenter/api/nari/')
 
     return <div className={c.bg}>
 
