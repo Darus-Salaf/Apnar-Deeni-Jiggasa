@@ -18,7 +18,7 @@ export default function Contemporary({ name, item, isWritten }) {
                 {isWritten && item.response === undefined && <div className="py-5 my-5 text-center"><Spinner /></div>}
 
                 {
-                    isWritten && item?.response?.slice(0, 5).reverse().map((i, index) => <><li className={c.listItem} key={index}><Link to={`/answer/${i._id}`}>{i.question}</Link></li><hr style={{ height: '01px', color: '#ddd', margin: '0px' }} /></>)
+                    isWritten && item?.response?.slice(0, 5).reverse().map((i, index) => <><li className={c.listItem} key={index}><Link to={`/answer/cat/post/id/${i._id}`}>{i.question}</Link></li><hr style={{ height: '01px', color: '#ddd', margin: '0px' }} /></>)
                 }
             </ul>
         </div>
