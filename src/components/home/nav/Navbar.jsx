@@ -4,17 +4,12 @@ import CustomMenu from './CustomMenu'
 import c from '../../../styles/header.module.css'
 import { categoryLink, menuLink } from '../../../fakedata/links'
 import { InputAdornment, TextField } from "@material-ui/core"
-import { useContext, useState } from "react"
-import { AdminContext, ModeratorContext } from "../../../App"
+import { useState } from "react"
 
 let width = window.innerWidth < 1230
 
 export default function Navbar() {
 
-    // eslint-disable-next-line
-    const [isAdmin, setIsAdmin] = useContext(AdminContext)
-    // eslint-disable-next-line
-    const [isMod, setIsMod] = useContext(ModeratorContext)
     const history = useHistory()
     const [input, setInput] = useState('')
 

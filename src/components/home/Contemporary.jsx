@@ -4,7 +4,6 @@ import Spinner from '../Spinner'
 
 export default function Contemporary({ name, item, isWritten }) {
 
-    console.log('item', item)
     return <>
         <div className={c.bg2}>
             <h5>{name}</h5>
